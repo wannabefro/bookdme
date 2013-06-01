@@ -1,0 +1,31 @@
+@import "bootstrap";
+
+$clouds: #ECF0F1;
+$blue: #3498DB;
+$dark_blue: #34495E;
+
+p{
+  line-height: 1.5;
+  font-size: 16px;
+}
+.bookd{
+  font-weight: 800;
+  color: $blue;
+  font-size: 40px;
+  vertical-align: center;
+  margin-top: 4;
+  line-height: 1;
+  &:hover{
+    text-decoration: none;}
+}
+
+.btn{
+  a{
+  color:white;
+  }
+}
+
+.notice:empty, .alert:empty{
+  display: none;
+}
+
