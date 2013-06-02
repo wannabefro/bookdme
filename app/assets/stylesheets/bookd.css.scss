@@ -8,6 +8,7 @@ p{
   line-height: 1.5;
   font-size: 16px;
 }
+/* HEADER */
 .bookd{
   font-weight: 800;
   color: $blue;
@@ -22,10 +23,17 @@ p{
 .btn{
   a{
   color:white;
+  &:hover{
+      text-decoration:none;
+      color: $clouds;
+    }
   }
 }
 
-.notice:empty, .alert:empty{
-  display: none;
+.head{
+  &:hover{
+    background-color: $clouds;
+  }
 }
+
 

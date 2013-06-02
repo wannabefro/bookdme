@@ -53,6 +53,7 @@ group :development, :text do
   gem 'capybara'
   gem 'launchy'
   gem 'valid_attribute'
+  gem 'pry'
 end
 
 gem 'jquery-rails'
@@ -69,9 +70,8 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
- :ruby
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end

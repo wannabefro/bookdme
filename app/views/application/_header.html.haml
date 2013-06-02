@@ -3,15 +3,15 @@
     .container.container-full-width
       = link_to 'Bookd.me', '/', :class => 'logo bookd'
       %ul.nav.pull-right
-        %li= link_to 'HELP', about_index_path
+        %li.head= link_to 'ABOUT US', about_index_path
         - if user_signed_in?
-          %li= link_to current_user.email, edit_user_registration_path
+          %li.head= link_to current_user.email, edit_user_registration_path
         - else
-          %li= link_to 'SIGN IN', new_user_session_path
+          %li.head= link_to 'SIGN IN', new_user_session_path
         - if user_signed_in?
-          %li= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete
+          %li.head= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete
         - else
-          %li= link_to 'SIGN UP', new_user_registration_path
+          %li.head= link_to 'SIGN UP', new_user_registration_path
         %li
           .btn.btn-info= link_to 'Add Your Act', '#'
 
