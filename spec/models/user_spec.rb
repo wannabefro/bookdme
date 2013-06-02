@@ -1,5 +1,27 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let(:user) { FactoryGirl.build(:user) }
+  let!(:previous_count) { User.count }
+
+  it 'should not login if no names are specified' do
+    user.first_name = ''
+    user.last_name = ''
+    user.save
+    expect(User.count).to eql(previous_count)
+  end
+
+  it 'should not login if an email is invalid' do
+    user.email = 'sam.com'
+    user.save
+    expect(User.count).to eql(previous_count)
+  end
+
+  it 'checks if a password has more than 7 characters' do
+    user.password = 'dumdumd'
+    user.save
+    expect(User.count).to eql(previous_count)
+  end
+
 end

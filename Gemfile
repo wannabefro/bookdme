@@ -32,6 +32,7 @@ gem 'carrierwave'
 gem 'cancan'
 gem 'omniauth'
 gem 'bootstrap-sass'
+gem 'validates'
 
 
 # Gems used only for assets and not required
