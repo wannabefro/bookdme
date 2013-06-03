@@ -1,6 +1,6 @@
 # RailsAdmin config file. Generated on June 03, 2013 10:00
 # See github.com/sferik/rails_admin for more informations
-
+ADMIN_EMAILS = ['sam.mctaggart@gmail.com']
 RailsAdmin.config do |config|
 
 
@@ -13,6 +13,13 @@ RailsAdmin.config do |config|
 
   # RailsAdmin may need a way to know who the current user is]
   config.current_user_method { current_user } # auto-generated
+  config.authenticate_with {} # leave it to authorize
+  config.authorize_with do
+      is_admin= ADMIN_EMAILS.include?(current_user.email)
+          if current_user
+              redirect_to main_app.new_user_session_url unless is_admin
+          end
+  end
 
   # If you want to track changes on your models:
   # config.audit_with :history, 'User'
@@ -64,22 +71,22 @@ RailsAdmin.config do |config|
 
   #   # Found columns:
 
-  #     configure :id, :integer 
-  #     configure :email, :string 
-  #     configure :password, :password         # Hidden 
-  #     configure :password_confirmation, :password         # Hidden 
-  #     configure :reset_password_token, :string         # Hidden 
-  #     configure :reset_password_sent_at, :datetime 
-  #     configure :remember_created_at, :datetime 
-  #     configure :sign_in_count, :integer 
-  #     configure :current_sign_in_at, :datetime 
-  #     configure :last_sign_in_at, :datetime 
-  #     configure :current_sign_in_ip, :string 
-  #     configure :last_sign_in_ip, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :first_name, :string 
-  #     configure :last_name, :string 
+  #     configure :id, :integer
+  #     configure :email, :string
+  #     configure :password, :password         # Hidden
+  #     configure :password_confirmation, :password         # Hidden
+  #     configure :reset_password_token, :string         # Hidden
+  #     configure :reset_password_sent_at, :datetime
+  #     configure :remember_created_at, :datetime
+  #     configure :sign_in_count, :integer
+  #     configure :current_sign_in_at, :datetime
+  #     configure :last_sign_in_at, :datetime
+  #     configure :current_sign_in_ip, :string
+  #     configure :last_sign_in_ip, :string
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :first_name, :string
+  #     configure :last_name, :string
 
   #   # Cross-section configuration:
 
@@ -105,5 +112,6 @@ RailsAdmin.config do |config|
   #     # you can override a cross-section field configuration in any section with the same syntax `configure :field_name do ... end`
   #     # using `field` instead of `configure` will exclude all other fields and force the ordering
   # end
+
 
 end
