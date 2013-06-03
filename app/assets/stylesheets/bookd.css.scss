@@ -1,8 +1,20 @@
+@import "bootswatch/flatly/variables";
 @import "bootstrap";
+@import "bootswatch/flatly/bootswatch";
 
 $clouds: #ECF0F1;
 $blue: #3498DB;
 $dark_blue: #34495E;
+
+.navbar{
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+
+.navbar-inner{
+  border-radius: 0px;
+}
+
 
 p{
   line-height: 1.5;
@@ -12,16 +24,21 @@ p{
 .bookd{
   font-weight: 800;
   color: $blue;
-  font-size: 40px;
+  font-size: 30px;
   vertical-align: center;
   margin-top: 4;
-  line-height: 1;
+  line-height: 1.5;
   &:hover{
-    text-decoration: none;}
+    text-decoration: none;
+    color: $clouds;}
 }
 
+.navbar .btn{
+  margin-top: 6px;
+}
 .btn{
   a{
+  vertical-align: center;
   color:white;
   &:hover{
       text-decoration:none;
@@ -43,6 +60,12 @@ p{
   // background-color: $clouds;
   margin-bottom: 40px;
 }
+
+.searchbtn{
+  margin-left: 10px;
+  height: 50px;
+}
+
 .jumbotron {
   margin: 60px 0;
   text-align: center;
@@ -77,13 +100,11 @@ input.big-search{
   height: 40px;
   font-size: 20px;
 }
-// input[type=search]{
-//   height: 40px;
-// }
 
-// .input-large{
-//   width: 500px;
-// }
+.color{
+  background-color: $blue;
+}
+
 
 
 

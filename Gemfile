@@ -33,6 +33,7 @@ gem 'cancan'
 gem 'omniauth'
 gem 'bootstrap-sass'
 gem 'validates'
+gem 'bootswatch-rails'
 
 
 # Gems used only for assets and not required
