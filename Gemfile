@@ -34,6 +34,7 @@ gem 'omniauth'
 gem 'bootstrap-sass'
 gem 'validates'
 gem 'bootswatch-rails'
+gem 'rails_admin'
 
 
 # Gems used only for assets and not required

@@ -1,7 +1,10 @@
 BookdMe::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   get "about/index"
 
   devise_for :users
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   root :to => "welcome#index"
   match '/about' => "about#index"
