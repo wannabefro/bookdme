@@ -10,6 +10,7 @@
         = f.input :password, :required => true
         = f.input :password_confirmation, :required => true
         = f.input :role, collection: User::ROLES, as: :radio_buttons
+
       .form-actions
         = f.button :submit, "Sign up"
       = render "devise/shared/links"
