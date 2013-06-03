@@ -5,6 +5,7 @@ BookdMe::Application.routes.draw do
 
   root :to => "welcome#index"
   match '/about' => "about#index"
+  match '/contact' => "welcome#contact"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -16,10 +16,13 @@
     = stylesheet_link_tag    "application"
     = csrf_meta_tags
   %body
-    = render 'header'
-    = render 'error_message'
+    #wrap
+      = render 'header'
+      = render 'error_message'
 
-    = yield
+      = yield
+      #push
+    = render 'footer'
     = javascript_include_tag "application"
     %script{:src => "//use.typekit.net/oos0lgi.js", :type => "text/javascript"}
     :javascript
