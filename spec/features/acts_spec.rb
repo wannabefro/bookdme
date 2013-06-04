@@ -25,7 +25,6 @@ end
     visit new_act_path
     fill_in 'Name', with: 'Awesome act'
     click_on 'Add your act'
-    save_and_open_page
     page.should have_content 'Welcome Awesome act'
     expect(Act.count).to_not eql(prev_count)
   end

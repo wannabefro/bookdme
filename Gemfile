@@ -35,7 +35,6 @@ gem 'bootstrap-sass'
 gem 'validates'
 gem 'bootswatch-rails'
 gem 'rails_admin'
-gem 'pwdcalc'
 gem 'obscenity'
 
 
@@ -58,6 +57,7 @@ group :development, :text do
   gem 'launchy'
   gem 'valid_attribute'
   gem 'pry'
+  gem 'shoulda'
 end
 
 gem 'jquery-rails'

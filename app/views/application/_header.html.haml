@@ -27,6 +27,10 @@
         - else
           %li= link_to 'SIGN IN', new_user_session_path
           %li= link_to 'SIGN UP', new_user_registration_path
-        %li
-          .btn.btn-info= link_to 'Add Your Act', new_act_path
+        - if user_signed_in? && current_user.act
+          %li
+            .btn.btn-info= link_to 'My Act', act_path(current_user.act)
+        - else
+          %li
+            .btn.btn-info= link_to 'Add Your Act', new_act_path
 
