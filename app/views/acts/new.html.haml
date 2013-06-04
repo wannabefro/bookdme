@@ -1,0 +1,19 @@
+.container
+  %h1
+    - if user_signed_in?
+      = "Sign up your act #{current_user.first_name}"
+    - else
+      = "Sign up your act"
+  = simple_form_for @act do |f|
+    = f.error_notification
+    .span8.well
+      .form-inputs
+        = f.input :name, :required => true, :autofocus => true
+      /   = f.input :last_name, :required => true, :autofocus => true
+      /   = f.input :email, :required => true, :autofocus => true
+      /   = f.input :password, :required => true
+      /   = f.input :password_confirmation, :required => true
+      /   = f.input :role, collection: User::ROLES, as: :radio_buttons, :checked => User::ROLES[0]
+
+      .form-actions
+        = f.button :submit, "Add your act"

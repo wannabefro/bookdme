@@ -8,4 +8,8 @@ class Act < ActiveRecord::Base
 
   belongs_to :user
 
+  def owner? current_user
+    user == current_user
+  end
+
 end
