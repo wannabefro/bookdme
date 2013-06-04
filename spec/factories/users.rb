@@ -6,6 +6,10 @@ FactoryGirl.define do
     last_name 'McTaggart'
     email 'sam@sam.com'
     password 'samsamsam'
-    role 'User'
+    role 'user'
+  end
+
+  trait :act do
+    role 'act'
   end
 end

@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603190523) do
+ActiveRecord::Schema.define(:version => 20130604122359) do
+
+  create_table "acts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.integer  "location_id"
+    t.integer  "genre_id"
+    t.string   "custom_genre"
+    t.text     "biography"
+    t.string   "website_url"
+    t.string   "avatar"
+    t.integer  "price"
+    t.text     "rider"
+    t.integer  "travel_range"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "contact_infos", :force => true do |t|
+    t.string   "first_name", :null => false
+    t.string   "last_name",  :null => false
+    t.string   "email",      :null => false
+    t.string   "subject",    :null => false
+    t.text     "message",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

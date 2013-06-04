@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  ROLES = %w[User Act]
+  ROLES = %w[user act]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -12,5 +12,7 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :email
   validates :email, :email => true
   validates :role, :presence => true, :inclusion => { :in => ROLES }
+
+  has_many :acts
 
 end

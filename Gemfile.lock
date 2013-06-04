@@ -104,6 +104,7 @@ GEM
     multi_json (1.7.4)
     nested_form (0.3.2)
     nokogiri (1.5.9)
+    obscenity (1.0.2)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
@@ -220,6 +221,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   launchy
+  obscenity
   omniauth
   pg
   pry
