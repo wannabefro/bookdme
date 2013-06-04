@@ -3,7 +3,7 @@
     .container.container-full-width
       = link_to 'Bookd.me', '/', :class => 'logo bookd'
       %ul.nav.pull-right
-        %li= link_to 'BROWSE', '/'
+        %li= link_to 'BROWSE', acts_path
         %li= link_to 'ABOUT US', about_index_path
         - if user_signed_in?
           %li.dropdown

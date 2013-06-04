@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604210056) do
+ActiveRecord::Schema.define(:version => 20130604211555) do
 
   create_table "acts", :force => true do |t|
     t.integer  "user_id"
@@ -20,13 +20,13 @@ ActiveRecord::Schema.define(:version => 20130604210056) do
     t.integer  "genre_id"
     t.string   "custom_genre"
     t.text     "biography"
-    t.string   "website_url"
     t.string   "avatar"
     t.integer  "price"
     t.text     "rider"
     t.integer  "travel_range"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "website"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

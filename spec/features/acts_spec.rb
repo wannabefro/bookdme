@@ -9,6 +9,15 @@ let!(:user) do
   login_as(user, :scope => :user)
 end
 
+  it 'should take me to my act page if I click on my act' do
+    visit new_act_path
+    fill_in 'Name', with: 'My act'
+    click_on 'Add your act'
+    visit root_path
+    click_on 'My Act'
+    page.should have_content 'Welcome My act'
+  end
+
   it 'should visit /act/sign_up to sign up as an act' do
     visit new_act_path
     page.should have_content 'Sign up your act'
@@ -27,5 +36,21 @@ end
     click_on 'Add your act'
     page.should have_content 'Welcome Awesome act'
     expect(Act.count).to_not eql(prev_count)
+  end
+
+  it 'should be able to fill in the acts website' do
+    prev_count = Act.count
+    visit new_act_path
+    fill_in 'Name', with: 'Awesome act'
+    fill_in 'Your acts website', with: 'mywebsite.com'
+    click_on 'Add your act'
+    page.should have_content 'Welcome Awesome act'
+    expect(Act.count).to_not eql(prev_count)
+  end
+
+  it 'should show me all acts if I click browse' do
+    user = FactoryGirl.create(:act)
+    visit acts_path
+    page.should have_content user.name
   end
 end

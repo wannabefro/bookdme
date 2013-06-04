@@ -1,7 +1,7 @@
 class ActsController < ApplicationController
 
   def index
-    @act = Act.all
+    @acts = Act.all
   end
 
   def new

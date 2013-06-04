@@ -1,2 +1,13 @@
-%h1
-  I'm an index page
+.container
+  %h1 Some awesome acts
+  %table
+    %tr
+      %th Name
+      %th
+
+    - @acts.each do |act|
+      %tr
+        %td= act.name
+        %td= link_to 'Show', act
+  %br/
+

@@ -8,7 +8,7 @@ FactoryGirl.define do
     genre_id 1
     custom_genre "MyString"
     biography "MyText"
-    website_url "MyString"
+    website "MyString"
     avatar "MyString"
     price 1
     rider "MyText"

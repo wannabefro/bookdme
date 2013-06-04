@@ -12,8 +12,8 @@ en:
       default_message: "Please review the problems below:"
     # Labels and hints examples
     labels:
-      user:
-        role: 'What do you want to be?'
+      act:
+        website: 'Your acts website'
     #   defaults:
     #     password: 'Password'
     #   user:
