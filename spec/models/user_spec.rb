@@ -24,4 +24,9 @@ describe User do
     expect(User.count).to eql(previous_count)
   end
 
+  it 'checks if an email address is unique' do
+    FactoryGirl.create(:user)
+    expect(user).to_not be_valid
+  end
+
 end

@@ -6,5 +6,6 @@ FactoryGirl.define do
     last_name 'McTaggart'
     email 'sam@sam.com'
     password 'samsamsam'
+    role 'User'
   end
 end

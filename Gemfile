@@ -35,6 +35,7 @@ gem 'bootstrap-sass'
 gem 'validates'
 gem 'bootswatch-rails'
 gem 'rails_admin'
+gem 'pwdcalc'
 
 
 # Gems used only for assets and not required
