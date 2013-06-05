@@ -47,7 +47,6 @@ end
   end
 
   it 'should allow me to upload an image' do
-    prev_count = Act.count
     user = FactoryGirl.attributes_for(:act)
     image_path = Rails.root + 'spec/support/images/placeholder.gif'
 
@@ -59,5 +58,47 @@ end
     page.should have_content 'Welcome MyString'
     act = Act.last
     expect(act.avatar.url).to include user[:avatar].original_filename
+  end
+
+  it 'should be able to select a category for the act' do
+    user = FactoryGirl.attributes_for(:act)
+    FactoryGirl.create(:category)
+
+    visit new_act_path
+    fill_in 'Name', with: user[:name]
+    page.select('Dancer', from: 'What kind of act are you')
+    click_on 'Add your act'
+
+    page.should have_content 'Welcome MyString'
+    act = Act.last
+    expect(act.category.name).to eql('Dancer')
+
+  end
+
+  it 'should be able to select a location for the act' do
+    user = FactoryGirl.attributes_for(:act)
+    location = FactoryGirl.create(:location)
+
+    visit new_act_path
+    fill_in 'Name', with: user[:name]
+    page.select('Florida', from: 'Where are you based')
+    click_on 'Add your act'
+
+    page.should have_content 'Welcome MyString'
+    act = Act.last
+    expect(act.location.state).to eql location.state
+  end
+
+  it 'should be able to add a custom genre' do
+    user = FactoryGirl.attributes_for(:act)
+
+    visit new_act_path
+    fill_in 'Name', with: user[:name]
+    fill_in 'In your own words what are you', with: user[:custom_genre]
+    click_on 'Add your act'
+
+    page.should have_content 'Welcome MyString'
+    act = Act.last
+    expect(act.custom_genre).to eql user[:custom_genre]
   end
 end

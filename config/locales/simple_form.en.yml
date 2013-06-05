@@ -15,6 +15,9 @@ en:
       act:
         website: 'Your acts website'
         avatar: 'Upload your image'
+        category: 'What kind of act are you'
+        location: 'Where are you based'
+        custom_genre: 'In your own words what are you'
     #   defaults:
     #     password: 'Password'
     #   user:

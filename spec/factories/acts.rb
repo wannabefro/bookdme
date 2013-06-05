@@ -2,13 +2,13 @@
 
 FactoryGirl.define do
   factory :act do
-    user_id 1
+    user
     name "MyString"
-    location_id 1
-    genre_id 1
-    custom_genre "MyString"
+    location
+    category
+    custom_genre "ballerina"
     biography "MyText"
-    website "MyString"
+    website 'www.music.com'
     avatar { Rack::Test::UploadedFile.new(File.join(Rails.root,'spec', 'support', 'images', 'placeholder.gif')) }
     price 1
     rider "MyText"

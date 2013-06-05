@@ -24,11 +24,12 @@ gem 'carrierwave'
 gem 'cancan'
 gem 'omniauth'
 gem 'bootstrap-sass'
-gem 'validates'
 gem 'bootswatch-rails'
 gem 'rails_admin'
 gem 'obscenity'
 gem 'mini_magick'
+gem 'chosen-rails'
+
 
 
 # Gems used only for assets and not required
@@ -51,6 +52,8 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'pry'
   gem 'shoulda'
+  gem 'poltergeist'
+  gem 'guard-rspec'
 end
 
 gem 'jquery-rails'

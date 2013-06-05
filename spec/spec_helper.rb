@@ -3,6 +3,8 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -36,8 +38,6 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-
-  config.after(:each) { puts "eric is the best" }
 
   config.after(:all) do
     # Get rid of the linked images

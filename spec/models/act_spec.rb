@@ -3,8 +3,12 @@ require 'pry'
 
 
 describe Act do
-  let(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:user) }
   let(:act) { FactoryGirl.build(:act) }
+
+  it 'should create a valid act if everything is specified' do
+    act.save
+  end
 
   it 'should ensure that the act name does not contain obscenity' do
     act.name = 'shit'
@@ -19,5 +23,10 @@ describe Act do
     expect(act.owner? user).to be_true
     expect(act.owner? user2).to be_false
 
+  end
+
+  it 'checks that a cateogry is provided' do
+    act = FactoryGirl.build(:act, category: nil)
+    expect(act).to_not be_valid
   end
 end
