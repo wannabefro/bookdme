@@ -1,4 +1,8 @@
 en:
+  # helpers:
+  #   submit:
+  #     act:
+        # create: "SUBMITT BUTTON LOOK LIKE THIS NOW"
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -18,6 +22,7 @@ en:
         category: 'What kind of act are you'
         location: 'Where are you based'
         custom_genre: 'In your own words what are you'
+        button: "asdasdasdas"
     #   defaults:
     #     password: 'Password'
     #   user:

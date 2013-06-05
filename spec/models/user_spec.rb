@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe User do
 
+  it {should validate_presence_of(:first_name)}
+  it {should validate_presence_of(:last_name)}
+  it {should validate_presence_of(:email)}
+
   let(:user) { FactoryGirl.build(:user) }
   let!(:previous_count) { User.count }
 
@@ -22,11 +26,6 @@ describe User do
     user.password = 'dumdumd'
     user.save
     expect(User.count).to eql(previous_count)
-  end
-
-  it 'checks if an email address is unique' do
-    FactoryGirl.create(:user)
-    expect(user).to_not be_valid
   end
 
 end

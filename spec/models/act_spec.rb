@@ -3,6 +3,15 @@ require 'pry'
 
 
 describe Act do
+
+  it { should belong_to(:user) }
+  it { should belong_to(:category)}
+  it { should belong_to(:location)}
+  it { should validate_presence_of(:name)}
+  it { should validate_presence_of(:user) }
+  it { should validate_presence_of(:category)}
+  it { should validate_presence_of(:location)}
+
   let!(:user) { FactoryGirl.create(:user) }
   let(:act) { FactoryGirl.build(:act) }
 

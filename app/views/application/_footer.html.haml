@@ -6,3 +6,12 @@
     .pull-right
       .btn.btn-primary
         = link_to 'Contact Us', contact_path
+
+= javascript_include_tag "application"
+
+= yield :extra_footer
+
+%script{:src => "//use.typekit.net/oos0lgi.js", :type => "text/javascript"}
+:javascript
+  try{Typekit.load();}catch(e){}
+

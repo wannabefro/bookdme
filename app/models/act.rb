@@ -10,6 +10,9 @@ class Act < ActiveRecord::Base
 
   validates :name, presence: true, obscenity: { message: 'No obscenity allowed in the act name' }
   validates :category, presence: true
+  validates :user, presence: true
+  validates :location, presence: true
+
 
   belongs_to :user
   belongs_to :category
