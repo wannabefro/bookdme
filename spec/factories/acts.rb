@@ -9,7 +9,7 @@ FactoryGirl.define do
     custom_genre "MyString"
     biography "MyText"
     website "MyString"
-    avatar "MyString"
+    avatar { Rack::Test::UploadedFile.new(File.join(Rails.root,'spec', 'support', 'images', 'placeholder.gif')) }
     price 1
     rider "MyText"
     travel_range 1

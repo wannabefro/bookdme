@@ -29,16 +29,7 @@ end
     expect(current_url).to include(new_user_registration_path)
   end
 
-  it 'should be able to fill in the acts name' do
-    prev_count = Act.count
-    visit new_act_path
-    fill_in 'Name', with: 'Awesome act'
-    click_on 'Add your act'
-    page.should have_content 'Welcome Awesome act'
-    expect(Act.count).to_not eql(prev_count)
-  end
-
-  it 'should be able to fill in the acts website' do
+  it 'should be able to fill in the acts name and website' do
     prev_count = Act.count
     visit new_act_path
     fill_in 'Name', with: 'Awesome act'
@@ -48,9 +39,25 @@ end
     expect(Act.count).to_not eql(prev_count)
   end
 
+
   it 'should show me all acts if I click browse' do
     user = FactoryGirl.create(:act)
     visit acts_path
     page.should have_content user.name
+  end
+
+  it 'should allow me to upload an image' do
+    prev_count = Act.count
+    user = FactoryGirl.attributes_for(:act)
+    image_path = Rails.root + 'spec/support/images/placeholder.gif'
+
+    visit new_act_path
+    fill_in 'Name', with: user[:name]
+    attach_file('Upload your image', image_path)
+    click_on 'Add your act'
+
+    page.should have_content 'Welcome MyString'
+    act = Act.last
+    expect(act.avatar.url).to include user[:avatar].original_filename
   end
 end

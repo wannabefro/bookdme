@@ -1,6 +1,8 @@
 require 'obscenity/active_model'
+require 'carrierwave/orm/activerecord'
 
 class Act < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
 
   attr_accessible :avatar, :biography, :custom_genre, :genre_id, :location_id, :name, :price, :rider, :travel_range, :user_id, :website
 

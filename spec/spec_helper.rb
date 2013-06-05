@@ -36,4 +36,28 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.after(:each) { puts "eric is the best" }
+
+  config.after(:all) do
+    # Get rid of the linked images
+    if Rails.env.test? || Rails.env.cucumber?
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    end
+  end
+
+  if defined?(CarrierWave)
+  CarrierWave::Uploader::Base.descendants.each do |klass|
+    next if klass.anonymous?
+    klass.class_eval do
+      def cache_dir
+        "#{Rails.root}/spec/support/uploads/tmp"
+      end
+
+      def store_dir
+        "#{Rails.root}/spec/support/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+      end
+    end
+  end
+end
 end

@@ -14,6 +14,7 @@ en:
     labels:
       act:
         website: 'Your acts website'
+        avatar: 'Upload your image'
     #   defaults:
     #     password: 'Password'
     #   user:

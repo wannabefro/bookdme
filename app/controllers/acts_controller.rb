@@ -16,6 +16,8 @@ class ActsController < ApplicationController
     @act.user_id = current_user.id
     if @act.save
       redirect_to @act, :notice => "Welcome #{@act.name} to Bookd.me"
+    else
+      render action: "new"
     end
   end
 

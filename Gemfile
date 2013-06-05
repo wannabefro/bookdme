@@ -36,6 +36,7 @@ gem 'validates'
 gem 'bootswatch-rails'
 gem 'rails_admin'
 gem 'obscenity'
+gem 'mini_magick'
 
 
 # Gems used only for assets and not required
