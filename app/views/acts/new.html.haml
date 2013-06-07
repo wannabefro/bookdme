@@ -9,7 +9,7 @@
     .span8.well
       .form-inputs
         = f.input :name, :required => true, :autofocus => true
-        = f.input :website, :autofocus => true
+        = f.input :website
         = f.input :avatar
         = f.hidden_field :avatar_cache
         = f.association :category,
@@ -21,6 +21,11 @@
           label_method: :state,
           include_blank: true,
           input_html: { class: 'chzn-select' }
+        = f.association :price,
+          label_method: :range,
+          include_blank:true,
+          input_html: { class: 'chzn-select' }
+        = f.input :short_bio, as: :text, :required => true, input_html: { maxlength: 140 }
 
       /   = f.input :last_name, :required => true, :autofocus => true
       /   = f.input :email, :required => true, :autofocus => true
@@ -29,5 +34,5 @@
       /   = f.input :role, collection: User::ROLES, as: :radio_buttons, :checked => User::ROLES[0]
 
       .form-actions
-        = f.button :submit, "Add your act", class: 'ladda-button blue'
+        = f.button :submit, "Add your act", class: 'btn btn-primary'
 

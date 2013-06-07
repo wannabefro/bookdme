@@ -56,6 +56,10 @@ group :development, :test do
   gem 'guard-rspec'
 end
 
+group :development do
+    gem 'better_errors'
+end
+
 gem 'jquery-rails'
 
 

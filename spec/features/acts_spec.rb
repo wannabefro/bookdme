@@ -10,7 +10,17 @@ let!(:user) do
 end
 let!(:category) { FactoryGirl.create(:category) }
 let!(:location) { FactoryGirl.create(:location) }
+let!(:price) { FactoryGirl.create(:price) }
 let(:act) { FactoryGirl.build(:act) }
+let(:info) {
+  image_path = Rails.root + 'spec/support/images/placeholder.gif'
+  fill_in 'Name', with: act[:name]
+  select('Dancer', :from => 'What kind of act are you')
+  select('Florida', :from => 'Where are you based')
+  attach_file('Upload your image', image_path)
+  fill_in 'In your own words what are you', with: act[:custom_genre]
+  fill_in 'Describe your act in a couple of sentences', with: act[:short_bio]
+}
 
 
 
@@ -46,5 +56,28 @@ let(:act) { FactoryGirl.build(:act) }
   #   act = Act.last
   #   expect(act.avatar.url).to include user[:avatar].original_filename
   # end
+
+  it 'should allow me to add a short bio' do
+    visit new_act_path
+
+    info
+    fill_in 'Describe your act in a couple of sentences', with: act[:short_bio]
+    click_on 'Add your act'
+
+    act = Act.last
+    expect(act.short_bio).to eql(act[:short_bio])
+  end
+
+  it 'should allow me to add an hourly rate' do
+    visit new_act_path
+
+    info
+    select('0-50', from: 'Your hourly rate')
+    click_on 'Add your act'
+
+    act = Act.last
+    expect(act.price.range).to eql('0-50')
+  end
+
 
 end

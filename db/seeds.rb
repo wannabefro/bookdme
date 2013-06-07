@@ -28,3 +28,9 @@ state_list.each do |state|
   Location.create(state: state)
 end
 
+price_list = ['0 - 50', '50 - 100', '100 - 150', '150 - 200', '200+']
+
+price_list.each do |price|
+  Price.create(range: price)
+end
+
