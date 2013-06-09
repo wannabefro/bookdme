@@ -12,7 +12,7 @@ class Act < ActiveRecord::Base
   validates :category, presence: true
   validates :user, presence: true
   validates :location, presence: true
-  validates :short_bio, presence: true, length: {maximum: 50}
+  validates :short_bio, presence: true, length: {maximum: 140}
   validates :price, presence: true
 
 

@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20130607192014) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "website"
-    t.integer  "category_id"
+    t.integer  "category_id",  :null => false
     t.string   "short_bio"
     t.integer  "price_id"
   end

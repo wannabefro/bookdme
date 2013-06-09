@@ -54,6 +54,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'poltergeist'
   gem 'guard-rspec'
+  gem 'stuffer'
 end
 
 group :development do
