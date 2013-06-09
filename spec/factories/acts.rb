@@ -10,7 +10,7 @@ FactoryGirl.define do
     biography "MyText"
     website 'www.music.com'
     short_bio 'Best dance troupe ever'
-    avatar { Rack::Test::UploadedFile.new(File.join(Rails.root,'spec', 'support', 'images', 'placeholder.gif')) }
+    # avatar { Rack::Test::UploadedFile.new(File.join(Rails.root,'spec', 'support', 'images', 'placeholder.gif')) }
     price
     rider "MyText"
     travel_range 1
