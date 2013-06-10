@@ -1,4 +1,26 @@
 .container
-  %h1
-    - if @act.owner? current_user
-      = "Welcome #{@act.name}"
+  - if @act.owner? current_user
+    - flash[:notice] = "Welcome #{@act.name}"
+  .row.push_it
+    .span3
+      = image_tag(@act.avatar)
+      #cssmenu
+        %ul
+          %li.active
+            = link_to 'About Us', '#'
+          %li
+            = link_to 'Biography', '#'
+          %li
+            = link_to 'Links', '#'
+          %li
+            = link_to 'Reviews', '#'
+    .span9
+      %h1
+        .act_name= @act.name.capitalize
+      - if !@act.owner? current_user
+        %button.ladda-button.blue
+          = link_to 'book me', '#'
+      %hr.clear
+      .short_bio
+        = @act.short_bio
+

@@ -1,13 +1,8 @@
 require 'spec_helper'
-include Warden::Test::Helpers
-Warden.test_mode!
 
 describe 'Creating an act' do
 
-let!(:user) do
-  user = FactoryGirl.create(:user)
-  login_as(user, :scope => :user)
-end
+let!(:user) { user = FactoryGirl.create(:user) }
 let!(:category) { FactoryGirl.create(:category) }
 let!(:location) { FactoryGirl.create(:location) }
 let!(:price) { FactoryGirl.create(:price) }
@@ -26,6 +21,7 @@ let(:info) {
 
 
   it "shouldn't allow me to sign up for a second act" do
+    sign_in_as user
     visit new_act_path
     info
     click_on 'Add your act'
@@ -37,12 +33,12 @@ let(:info) {
   end
 
   it 'should visit /act/sign_up to sign up as an act' do
+    sign_in_as user
     visit new_act_path
     page.should have_content 'Sign up your act'
   end
 
   it 'should redirect to the standard sign up if you are not logged in' do
-    logout(:user)
     visit new_act_path
     expect(current_url).to include(new_user_registration_path)
   end
@@ -56,6 +52,7 @@ let(:info) {
 
 
   it 'should take me to my act path if I successfully sign up' do
+    sign_in_as user
     visit new_act_path
     info
     click_on 'Add your act'
@@ -65,13 +62,40 @@ let(:info) {
 
 
   it 'should not allow me to edit an act if I am not signed in as the app owner' do
+    sign_in_as user
     act = FactoryGirl.create(:act)
-    logout(:user)
+    sign_out_as user
     visit edit_act_path(act.id)
 
     page.should have_content 'You must log in to edit your act'
     expect(current_path).to eql(acts_path)
   end
+
+  it 'should redirect me to my act page on successful log in if I have an act' do
+    sign_in_as user
+    visit root_path
+    click_on 'Add Your Act'
+    info
+    click_on 'Add your act'
+    act = Act.last
+    click_on 'Logout'
+    click_on 'SIGN IN'
+    fill_in 'Email', with: user[:email]
+    fill_in 'Password', with: user.password
+    click_on 'Sign in'
+
+    expect(current_path).to eql(act_path(act.id))
+
+
+  end
+
+  it 'should allow me to see all the key information on an acts page' do
+    act = FactoryGirl.create(:act)
+    visit act_path(act.id)
+
+    page.should have_content(act[:name].capitalize)
+  end
+
 
 
 end

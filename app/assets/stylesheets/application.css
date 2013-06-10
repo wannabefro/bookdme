@@ -11,4 +11,6 @@
  *= require_self
  *= require chosen
  *= require bookd
+ *= require ladda
+ *= require act_menu
  */

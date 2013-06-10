@@ -14,4 +14,11 @@
 %script{:src => "//use.typekit.net/oos0lgi.js", :type => "text/javascript"}
 :javascript
   try{Typekit.load();}catch(e){}
+:javascript
+  $("ul").on("click", "li", function() {
+      var $this = $(this);
+      $this.addClass("active")
+           // .prependTo($this.parent())
+           .siblings().removeClass("active");
+  });
 
