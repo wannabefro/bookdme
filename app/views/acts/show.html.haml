@@ -3,7 +3,7 @@
     - flash[:notice] = "Welcome #{@act.name}"
   .row.push_it
     .span3
-      = image_tag(@act.avatar)
+      = image_tag(@act.avatar.url(:profile))
       #cssmenu
         %ul
           %li.active

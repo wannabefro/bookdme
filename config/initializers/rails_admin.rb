@@ -15,10 +15,22 @@ RailsAdmin.config do |config|
   config.current_user_method { current_user } # auto-generated
   config.authenticate_with {} # leave it to authorize
   config.authorize_with do
-      is_admin= ADMIN_EMAILS.include?(current_user.email)
-          if current_user
-              redirect_to main_app.new_user_session_url unless is_admin
-          end
+    is_admin = current_user.present? && ADMIN_EMAILS.include?(current_user.email)
+
+    unless is_admin
+      redirect_to main_app.new_user_session_url, :alert => 'Silly haxor!!'
+    end
+
+    # if current_user
+    #   is_admin = ADMIN_EMAILS.include?(current_user.email)
+
+    #   unless is_admin
+    #     redirect_to main_app.new_user_session_url, flash[:notice] = 'Silly haxor'
+    #   end
+    # else
+    #   redirect_to main_app.new_user_session_url, flash[:notice] = 'Silly haxor'
+    # end
+
   end
 
   # If you want to track changes on your models:

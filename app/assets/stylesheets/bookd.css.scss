@@ -141,21 +141,28 @@ input.big-search{
   margin-top: 40px;
   .blue{
     float: right;
-    margin-top: -7px;
+    margin-top: 5px;
+  }
+  .blue, .act_name{
+    margin-top: -18px;
   }
 }
 
 .act_name{
-  font-size: 72px;
+  font-size: 60px;
+  line-height: 1;
   float: left;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.125em;
+  padding-left: 0px;
+  max-width: 540px;
+  min-height: 120px;
 }
 
 .short_bio{
   font-size: 40px;
-  margin-top: 1em;
+  margin-top: -18px;
   line-height: 1.2em;
-  height:106px;
+  height:95px;
   border-bottom: 1px #ECF0F1 solid;
 }
 

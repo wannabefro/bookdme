@@ -6,7 +6,7 @@ class Act < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   attr_accessible :avatar, :biography, :custom_genre, :category_id, :location_id, :name, :price, :rider,
-                  :travel_range, :user_id, :website, :avatar_cache, :short_bio, :price_id
+                  :travel_range, :user_id, :website, :avatar_cache, :short_bio, :price_id, :remove_avatar
 
   validates :name, presence: true, obscenity: { message: 'No obscenity allowed in the act name' }
   validates :category, presence: true
@@ -14,6 +14,7 @@ class Act < ActiveRecord::Base
   validates :location, presence: true
   validates :short_bio, presence: true, length: {maximum: 140}
   validates :price, presence: true
+  validates :custom_genre, presence: true, length: {maximum: 50}
 
 
   belongs_to :user

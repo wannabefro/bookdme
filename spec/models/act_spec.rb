@@ -13,6 +13,7 @@ describe Act do
   it { should validate_presence_of(:location) }
   it { should validate_presence_of(:short_bio) }
   it { should validate_presence_of(:price) }
+  it { should validate_presence_of(:custom_genre) }
 
   let!(:user) { FactoryGirl.create(:user) }
   let(:act) { FactoryGirl.build(:act) }
@@ -44,6 +45,12 @@ describe Act do
   it 'checks that a short-bio is not over 140 characters' do
     act = FactoryGirl.build(:act)
     act.short_bio = 's' * 500
+    expect(act).to_not be_valid
+  end
+
+  it 'checks that a custom is not over 50 characters' do
+    act = FactoryGirl.build(:act)
+    act.custom_genre = 's' * 500
     expect(act).to_not be_valid
   end
 end
