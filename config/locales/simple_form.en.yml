@@ -22,7 +22,7 @@ en:
         category: 'What kind of act are you'
         location: 'Where are you based'
         custom_genre: 'In your own words what are you'
-        short_bio: 'Describe your act in a couple of sentences'
+        short_bio: 'Describe your act in 140 characters or less'
         price: 'Your hourly rate'
     #   defaults:
     #     password: 'Password'

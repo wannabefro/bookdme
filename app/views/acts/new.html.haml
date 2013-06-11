@@ -1,38 +1,42 @@
 .container
-  %h1
-    - if user_signed_in?
-      = "Sign up your act #{current_user.first_name}"
-    - else
-      = "Sign up your act"
-  = simple_form_for @act do |f|
-    = f.error_notification
-    .span8.well
+  .row
+    %h1
+      - if user_signed_in?
+        = "Sign up your act #{current_user.first_name}"
+      - else
+        = "Sign up your act"
+    = simple_form_for @act do |f|
+      = f.error_notification
+
       .form-inputs
-        = f.input :name, :required => true, :autofocus => true
-        = f.input :website
-        = f.input :avatar
-        = f.hidden_field :avatar_cache
-        = f.association :category,
-          collection: Category.all,
-          include_blank: true,
-          input_html: { class: 'chzn-select' }
-        = f.input :custom_genre
-        = f.association :location,
-          label_method: :state,
-          include_blank: true,
-          input_html: { class: 'chzn-select' }
-        = f.association :price,
-          label_method: :range,
-          include_blank:true,
-          input_html: { class: 'chzn-select' }
-        = f.input :short_bio, as: :text, :required => true, input_html: { maxlength: 140 }
+        .span6
+          = f.input :name, :required => true, :autofocus => true, input_html: { class: 'span5'}
+          = f.input :website, input_html: { class: 'span5'}
+          = f.input :avatar
+          = f.hidden_field :avatar_cache
+          = f.association :category,
+            collection: Category.all,
+            include_blank: true,
+            input_html: { class: 'chzn-select span5' }
+          = f.association :price,
+            label_method: :range,
+            include_blank:true,
+            input_html: { class: 'chzn-select span5' }
+          = f.association :location,
+            label_method: :state,
+            include_blank: true,
+            input_html: { class: 'chzn-select span5' }
+          = f.input :custom_genre, input_html: { class: 'span5'}
+        .span6
+          = f.input :short_bio, as: :text, :required => true, input_html: { maxlength: 140, class: 'span5', size: '10x17' }
+          = f.button :submit, "Add your act", class: 'ladda-button blue act_sign_up'
 
-      /   = f.input :last_name, :required => true, :autofocus => true
-      /   = f.input :email, :required => true, :autofocus => true
-      /   = f.input :password, :required => true
-      /   = f.input :password_confirmation, :required => true
-      /   = f.input :role, collection: User::ROLES, as: :radio_buttons, :checked => User::ROLES[0]
+        /   = f.input :last_name, :required => true, :autofocus => true
+        /   = f.input :email, :required => true, :autofocus => true
+        /   = f.input :password, :required => true
+        /   = f.input :password_confirmation, :required => true
+        /   = f.input :role, collection: User::ROLES, as: :radio_buttons, :checked => User::ROLES[0]
 
-      .form-actions
-        = f.button :submit, "Add your act", class: 'btn btn-primary'
+        / .form-actions
+
 
