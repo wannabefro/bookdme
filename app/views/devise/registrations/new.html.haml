@@ -4,12 +4,11 @@
     = f.error_notification
     .span8.well
       .form-inputs
-        = f.input :first_name, :required => true, :autofocus => true
-        = f.input :last_name, :required => true, :autofocus => true
-        = f.input :email, :required => true, :autofocus => true
-        = f.input :password, :required => true
-        = f.input :password_confirmation, :required => true
+        = f.input :first_name, :required => true, :autofocus => true, input_html:{class: 'span4'}
+        = f.input :last_name, :required => true, input_html:{class: 'span4'}
+        = f.input :email, :required => true, input_html:{class: 'span4'}
+        = f.input :password, :required => true, input_html:{class: 'span4'}
+        = f.input :password_confirmation, :required => true, input_html:{class: 'span4'}
 
-      .form-actions
-        = f.button :submit, "Sign up"
+        = f.button :submit, "Sign up", class: 'ladda-button blue'
       = render "devise/shared/links"

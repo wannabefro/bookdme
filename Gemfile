@@ -23,12 +23,11 @@ gem 'default_value_for'
 gem 'carrierwave'
 gem 'cancan'
 gem 'omniauth'
-gem 'bootstrap-sass'
-gem 'bootswatch-rails'
 gem 'rails_admin'
 gem 'obscenity'
 gem 'mini_magick'
 gem 'chosen-rails'
+gem 'zurb-foundation'
 
 
 

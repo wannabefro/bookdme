@@ -1,8 +1,4 @@
 en:
-  # helpers:
-  #   submit:
-  #     act:
-        # create: "SUBMITT BUTTON LOOK LIKE THIS NOW"
   simple_form:
     "yes": 'Yes'
     "no": 'No'
@@ -15,15 +11,7 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
     # Labels and hints examples
-    labels:
-      act:
-        website: 'Your acts website'
-        avatar: 'Upload your image'
-        category: 'What kind of act are you'
-        location: 'Where are you based'
-        custom_genre: 'In your own words what are you'
-        short_bio: 'Describe your act in 140 characters or less'
-        price: 'Your hourly rate'
+    # labels:
     #   defaults:
     #     password: 'Password'
     #   user:

@@ -1,11 +1,12 @@
 #footer
-  .container.bottom
-    .pull-left
-      %p.muted.credit
-        This will be copyright information 2013
-    .pull-right
-      .btn.btn-primary
-        = link_to 'Contact Us', contact_path
+  .container.bottom.row
+    .span12
+      .pull-left
+        %p.muted.credit
+          This will be copyright information 2013
+      .pull-right
+        .btn.btn-primary
+          = link_to 'Contact Us', contact_path
 
 = javascript_include_tag "application"
 
@@ -15,10 +16,8 @@
 :javascript
   try{Typekit.load();}catch(e){}
 :javascript
-  $("ul").on("click", "li", function() {
+  $("#cssmenu ul").on("click", "li", function() {
       var $this = $(this);
       $this.addClass("active")
-           // .prependTo($this.parent())
            .siblings().removeClass("active");
   });
-

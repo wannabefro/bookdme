@@ -7,14 +7,14 @@
       #cssmenu
         %ul
           %li.active
-            = link_to 'About Us', '#'
+            = link_to 'About Us', '#about_us'
           %li
-            = link_to 'Biography', '#'
+            = link_to 'Biography', '#biography'
           %li
-            = link_to 'Links', '#'
+            = link_to 'Links', '#links'
           %li
-            = link_to 'Reviews', '#'
-    .span9
+            = link_to 'Reviews', '#review'
+    .span9.show_act_info
       %h1
         .acts_name= @act.name.capitalize
       - if !@act.owner? current_user
@@ -23,4 +23,19 @@
       %hr.clear
       .short_bio
         = @act.short_bio
+      #show_act_links
+        #about_us
+          %p
+            = "#{@act.name.capitalize} are a #{@act.category.name} act, from #{@act.location.state}."
+            %br
+            = "In their own words they are #{@act.custom_genre}."
+        #biography
+          %p
+            ="#{@act.biography}"
+        #links
+          %p
+            links
+        #review
+          %p
+            review
 

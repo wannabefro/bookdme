@@ -3,12 +3,12 @@
 FactoryGirl.define do
   factory :act do
     user
-    name "MyString"
+    name "Bellinda the great"
     location
     category
     custom_genre "ballerina"
-    biography "MyText"
-    website 'www.music.com'
+    biography "I come from the motherland to bring joy to all the leprachauns in the world"
+    website 'www.bellindarocks.com'
     short_bio 'Best dance troupe ever'
     # avatar { Rack::Test::UploadedFile.new(File.join(Rails.root,'spec', 'support', 'images', 'placeholder.gif')) }
     price

@@ -14,7 +14,7 @@ let(:info) {
   select('Florida', :from => 'Where are you based')
   attach_file('Upload your image', image_path)
   fill_in 'In your own words what are you', with: act[:custom_genre]
-  fill_in 'Describe your act in a couple of sentences', with: act[:short_bio]
+  fill_in 'Describe your act in 140 characters or less', with: act[:short_bio]
   select('0-50', from: 'Your hourly rate')
 }
 
@@ -57,7 +57,7 @@ let(:info) {
     info
     click_on 'Add your act'
 
-    page.should have_content 'MyString'
+    page.should have_content 'Bellinda the great'
   end
 
 
