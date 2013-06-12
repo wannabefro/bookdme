@@ -1,41 +1,68 @@
-.container
-  / - if @act.owner? current_user
-  /   - flash[:notice] = "Welcome #{@act.name}"
-  .row.push_it
-    .span3
-      = image_tag(@act.avatar.url(:profile))
-      #cssmenu
-        %ul
-          %li.active
-            = link_to 'About Us', '#about_us'
-          %li
-            = link_to 'Biography', '#biography'
-          %li
-            = link_to 'Links', '#links'
-          %li
-            = link_to 'Reviews', '#review'
-    .span9.show_act_info
-      %h1
-        .acts_name= @act.name.capitalize
-      - if !@act.owner? current_user
-        %button.ladda-button.blue
-          = link_to 'book me', '#'
-      %hr.clear
-      .short_bio
-        = @act.short_bio
-      #show_act_links
-        #about_us
-          %p
-            = "#{@act.name.capitalize} are a #{@act.category.name} act, from #{@act.location.state}."
-            %br
-            = "In their own words they are #{@act.custom_genre}."
-        #biography
-          %p
-            ="#{@act.biography}"
-        #links
-          %p
-            links
-        #review
-          %p
-            review
+.row.push_it
+  .large-4.columns
+    = image_tag(@act.avatar.url(:profile))
+
+    / %ul
+    /   %li.active
+    /     = link_to 'About Us', '#about_us'
+    /   %li
+    /     = link_to 'Biography', '#biography'
+    /   %li
+    /     = link_to 'Links', '#links'
+    /   %li
+    /     = link_to 'Reviews', '#review'
+  .large-8.columns.show_act_info
+    %h1
+      .acts_name= @act.name.capitalize
+    %p
+      = @act.short_bio
+    - if !@act.owner? current_user
+      %a
+      = link_to 'book me', '#', class: 'button'
+
+.row.more_info
+  .large-12.columns
+    .section-container.auto{"data-section" => ""}
+      %section
+        %p.title{"data-section-title" => ""}
+          %a{:href => "#panel1"} Biography
+        .content{"data-section-content" => ""}
+          %p= @act.biography
+      %section
+        %p.title{"data-section-title" => ""}
+          %a{:href => "#panel2"} About Us
+        .content{"data-section-content" => ""}
+          %p About Us
+      %section
+        %p.title{"data-section-title" => ""}
+          %a{:href => "#panel3"} Media
+        .content{"data-section-content" => ""}
+          %p Media
+      %section
+        %p.title{"data-section-title" => ""}
+          %a{:href => "#panel4"} Requirements
+        .content{"data-section-content" => ""}
+          %p Requirements
+      %section
+        %p.title{"data-section-title" => ""}
+          %a{:href => "#panel5"} Reviews
+        .content{"data-section-content" => ""}
+          %p Reviews
+    / .short_bio
+    /   = @act.short_bio
+    / #show_act_links
+    /   #about_us
+    /     %p
+    /       = "#{@act.name.capitalize} are a #{@act.category.name} act, from #{@act.location.state}."
+    /       %br
+    /       = "In their own words they are #{@act.custom_genre}."
+    /   #biography
+    /     %p
+    /       ="#{@act.biography}"
+    /   #links
+    /     %p
+    /       links
+    /   #review
+    /     %p
+    /       review
 

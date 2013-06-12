@@ -12,6 +12,13 @@
       %li.divider
       %li= link_to 'ABOUT US', about_index_path
       %li.divider
+      - if user_signed_in? && current_user.act
+        %li
+          = link_to 'MY ACT', edit_act_path(current_user.act.id)
+      - else
+        %li
+          = link_to 'ADD YOUR ACT', new_act_path
+      %li.divider
       - if user_signed_in?
         %li
           = link_to destroy_user_session_path, :method => :delete do
@@ -21,10 +28,4 @@
         %li.divider
         %li= link_to 'SIGN UP', new_user_registration_path
       %li.divider
-      / - if user_signed_in? && current_user.act
-      /   %li
-      /     .btn.btn-info= link_to 'My Act', edit_act_path(current_user.act.id)
-      / - else
-      /   %li
-      /     .btn.btn-info= link_to 'Add Your Act', new_act_path
 

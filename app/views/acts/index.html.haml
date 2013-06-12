@@ -3,13 +3,17 @@
   %table
     %tr
       %th Name
+      %th Short Bio
+      %th
       %th
 
     - @acts.each do |act|
       %tr
         %td= act.name
+        %td= act.short_bio
+        %td= image_tag(act.avatar.url(:profile))
         %td
-          = link_to 'Show', act
+          = link_to 'View act', act
 
   %br/
 

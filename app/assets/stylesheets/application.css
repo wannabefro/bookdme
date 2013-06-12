@@ -10,10 +10,9 @@
  *
  *= require_self
  *= require foundation_and_overrides
- *= require chosen
  *= require app
  *= require bookd
  *= require ladda
- *= require act_menu
+ *= require select2
  */
 

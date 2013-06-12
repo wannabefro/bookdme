@@ -41,7 +41,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :profile do
-    process resize_to_fill: [240, 240, gravity = 'Center']
+    process resize_to_fill: [320, 240, gravity = 'Center']
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

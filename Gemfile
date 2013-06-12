@@ -26,9 +26,10 @@ gem 'omniauth'
 gem 'rails_admin'
 gem 'obscenity'
 gem 'mini_magick'
-gem 'chosen-rails'
+gem 'select2-rails'
 gem 'zurb-foundation'
 gem 'foundation-social-web-icons-rails', git: "git://github.com/jclusso/foundation-social-web-icons-rails.git"
+
 
 
 
@@ -55,6 +56,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'guard-rspec'
   gem 'stuffer'
+  gem 'email_spec'
 end
 
 group :development do

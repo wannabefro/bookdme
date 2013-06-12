@@ -31,6 +31,10 @@ height: 4.1em;
     }
 }
 
+.top-bar{
+  margin-bottom: 0px;
+}
+
 .logo{
   font-size: 30px;
   font-weight: 700;
@@ -42,6 +46,7 @@ height: 4.1em;
   margin-top: -30px;
   background-color: #F39C12;
   padding-bottom: 20px;
+  padding-top: 20px;
 
 }
 
@@ -67,4 +72,25 @@ height: 4.1em;
 
 .img-circle{
   border-radius: 70px;
+}
+
+.form_title{
+  padding-left: 0.42em;
+}
+
+.push_it{
+  padding-top: 40px;
+}
+
+.show_act_info{
+  max-height: 240px;
+  p{
+    font-size: 20px;
+  }
+}
+
+
+
+.more_info{
+
 }

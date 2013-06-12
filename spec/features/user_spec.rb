@@ -1,11 +1,9 @@
 require 'spec_helper'
-include Warden::Test::Helpers
-Warden.test_mode!
-
 
 
 describe 'user header' do
 
+let!(:user) { user = FactoryGirl.create(:user) }
 let!(:category) { FactoryGirl.create(:category) }
 let!(:location) { FactoryGirl.create(:location) }
 let!(:price) { FactoryGirl.create(:price) }
@@ -16,21 +14,20 @@ let(:info) {
   select('Dancer', :from => 'What kind of act are you')
   select('Florida', :from => 'Where are you based')
   attach_file('Upload your image', image_path)
-  fill_in 'In your own words what are you', with: act[:custom_genre]
-  fill_in 'Describe your act in 140 characters or less', with: act[:short_bio]
+  fill_in 'What does your act specialize in', with: act[:custom_genre]
+  fill_in 'Tell us about your act in 140 characters or less', with: act[:short_bio]
   select('0-50', from: 'Your hourly rate')
 }
 
   it 'should be able to visit the edit path from the header' do
-  user = FactoryGirl.create(:user)
 
-  login_as(user, :scope => :user)
+  sign_in_as user
   visit root_path
-  click_on 'Add Your Act'
+  click_on 'ADD YOUR ACT'
   info
   click_on 'Add your act'
   visit root_path
-  click_on 'My Act'
+  click_on 'MY ACT'
 
   page.should have_content 'Edit your act'
 

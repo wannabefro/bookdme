@@ -13,8 +13,8 @@ let(:info) {
   select('Dancer', :from => 'What kind of act are you')
   select('Florida', :from => 'Where are you based')
   attach_file('Upload your image', image_path)
-  fill_in 'In your own words what are you', with: act[:custom_genre]
-  fill_in 'Describe your act in 140 characters or less', with: act[:short_bio]
+  fill_in 'What does your act specialize in', with: act[:custom_genre]
+  fill_in 'Tell us about your act in 140 characters or less', with: act[:short_bio]
   select('0-50', from: 'Your hourly rate')
 }
 
@@ -74,11 +74,11 @@ let(:info) {
   it 'should redirect me to my act page on successful log in if I have an act' do
     sign_in_as user
     visit root_path
-    click_on 'Add Your Act'
+    click_on 'ADD YOUR ACT'
     info
     click_on 'Add your act'
     act = Act.last
-    click_on 'Logout'
+    click_on 'LOGOUT'
     click_on 'SIGN IN'
     fill_in 'Email', with: user[:email]
     fill_in 'Password', with: user.password

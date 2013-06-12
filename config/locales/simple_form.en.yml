@@ -10,6 +10,14 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    labels:
+      act:
+        location: 'Where are you based'
+        category: 'What kind of act are you'
+        price: 'Your hourly rate'
+        custom_genre: 'What does your act specialize in'
+        short_bio: 'Tell us about your act in 140 characters or less'
+        avatar: 'Upload your image'
     # Labels and hints examples
     # labels:
     #   defaults:

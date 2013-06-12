@@ -1,14 +1,14 @@
-.container
-  %h2 Sign up
+.row
+  %h2.form_title.large-offset-2.small-offset-2 Sign up
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
     = f.error_notification
-    .span8.well
+    .large-8.small-8.large-offset-2.small-offset-2.columns
       .form-inputs
-        = f.input :first_name, :required => true, :autofocus => true, input_html:{class: 'span4'}
-        = f.input :last_name, :required => true, input_html:{class: 'span4'}
-        = f.input :email, :required => true, input_html:{class: 'span4'}
-        = f.input :password, :required => true, input_html:{class: 'span4'}
-        = f.input :password_confirmation, :required => true, input_html:{class: 'span4'}
+        = f.input :first_name, :required => true, :autofocus => true
+        = f.input :last_name, :required => true
+        = f.input :email, :required => true
+        = f.input :password, :required => true
+        = f.input :password_confirmation, :required => true
 
-        = f.button :submit, "Sign up", class: 'ladda-button blue'
+        = f.button :submit, "Sign up", class: 'button'
       = render "devise/shared/links"
