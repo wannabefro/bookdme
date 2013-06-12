@@ -28,6 +28,7 @@ gem 'obscenity'
 gem 'mini_magick'
 gem 'chosen-rails'
 gem 'zurb-foundation'
+gem 'foundation-social-web-icons-rails', git: "git://github.com/jclusso/foundation-social-web-icons-rails.git"
 
 
 

@@ -1,35 +1,32 @@
-.color
-  .container.searchit
-    .jumbotron.span12
+.jumbo_container
+  .row
+    .large-8.small-8.small-offset-2.large-offset-2.columns.jumbo
       %h1 Find your perfect act now!
-      %p.lead Whether it's a band, a clown, a mime, a ballerina, fire-breather, find it here.
-      %input.input-large.search-query.big-search{:placeholder => "type in what you want here", :type => "text"}/
+      %p Whether it's a band, a clown, a mime, a ballerina, fire-breather, find it here.
+      %input.expand{:placeholder => "type your act here", :type => "text"}/
 
-      %button.btn.btn-primary.searchbtn{:type => "submit"} Search
-  %hr/
+      %ba.button.radius{:type => "submit"} Search
 
-.container
-  .row.info.clear
-    .span4
+
+.info_container
+  .row.info
+    .large-4.columns
       %img.img-circle{"src" => "http://placehold.it/140x140"}/
-      %h2 Marketing Blurb 1
+      %h2 Find your act
       %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-      %p
-        %a.btn.btn-info{:href => "#"} View details »
+
     / /.span4
-    .span4
+    .large-4.columns
       %img.img-circle{"src" => "http://placehold.it/140x140"}/
-      %h2 Marketing Blurb 2
+      %h2 Make your offer
       %p Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-      %p
-        %a.btn.btn-info{:href => "#"} View details »
+
     / /.span4
-    .span4
+    .large-4.columns
       %img.img-circle{"src" => "http://placehold.it/140x140"}/
-      %h2 Marketing Blurb 3
+      %h2 Get your act
       %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-      %p
-        %a.btn.btn-info{:href => "#"} View details »
+
 
     / /.span4
   / /.row

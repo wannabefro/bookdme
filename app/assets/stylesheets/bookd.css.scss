@@ -1,0 +1,70 @@
+@import 'foundation-social-web-icons';
+
+* {
+margin: 0;
+}
+html, body {
+height: 100%;
+}
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -4.1em;
+background-color: #ECF0F1;
+}
+#footer, .push {
+height: 4.1em;
+}
+#footer {
+    text-align: center;
+    background-color: #2A3C4E;
+    p{
+      margin-bottom: 1em;
+      color: white;
+    }
+    .row{
+      position: relative;
+      top: 17px;
+      // padding-top: 18px;
+      background-color: #2A3C4E;
+    }
+}
+
+.logo{
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  padding-left: 10px;
+}
+
+.jumbo_container{
+  margin-top: -30px;
+  background-color: #F39C12;
+  padding-bottom: 20px;
+
+}
+
+.info_container{
+  padding-top: 20px;
+  background-color: #1ABC9C;
+}
+
+.jumbo{
+  text-align: center;
+  input{
+    text-align: center;
+    font-size: 20px;
+  }
+  h1{
+    font-size: 3em;
+  }
+}
+
+.info{
+  text-align: center;
+}
+
+.img-circle{
+  border-radius: 70px;
+}

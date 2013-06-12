@@ -1,12 +1,14 @@
 #footer
-  .container.bottom.row
-    .span12
-      .pull-left
-        %p.muted.credit
-          This will be copyright information 2013
-      .pull-right
-        .btn.btn-primary
-          = link_to 'Contact Us', contact_path
+  .row
+
+    %p.large-4.columns
+      &copy; 2013 Bookd.me. All rights reserved
+    .large-4.columns
+      %a{:href => "#", class: 'fc-webicon facebook'}
+      %a{:href => "#", class: 'fc-webicon twitter'}
+      %a{:href => "#", class: 'fc-webicon googleplus'}
+    .large-4.columns
+      = link_to 'Contact Us', contact_path, class: 'button small'
 
 = javascript_include_tag "application"
 

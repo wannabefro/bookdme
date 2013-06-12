@@ -16,11 +16,12 @@
     = stylesheet_link_tag    "application"
     = csrf_meta_tags
   %body
-    #wrap
+    %section.wrapper
+
       = render 'header'
-      = render 'error_message'
+
 
       = yield
-      #push
 
+    .push
     = render 'footer'
