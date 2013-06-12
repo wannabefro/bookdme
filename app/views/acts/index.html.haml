@@ -1,19 +1,17 @@
-.container
-  %h1 Some awesome acts
-  %table
-    %tr
-      %th Name
-      %th Short Bio
-      %th
-      %th
-
+.row.large-12.columns.row
+  .search_act
+    %h1 Find your act
+    %input{:placeholder => "Find it here", :type => "text"}/
+    .filter_act.large-3.columns.row
+      %p All the beautiful filters will go here
     - @acts.each do |act|
-      %tr
-        %td= act.name
-        %td= act.short_bio
-        %td= image_tag(act.avatar.url(:profile))
-        %td
-          = link_to 'View act', act
+      .show_act.row.columns
+        .show_act_image.large-3.large-offset-3.columns
+          = image_tag(act.avatar.url(:profile))
+          = link_to 'View act', act, class: 'button'
+        .show_act_info.large-6.columns
+          %h1= act.name
+          %h4= act.category.name
+          %p= act.short_bio
 
-  %br/
 

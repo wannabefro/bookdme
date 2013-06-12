@@ -5,16 +5,19 @@ margin: 0;
 }
 html, body {
 height: 100%;
+background-color: #ECF0F1;
 }
 .wrapper {
 min-height: 100%;
 height: auto !important;
 height: 100%;
 margin: 0 auto -4.1em;
-background-color: #ECF0F1;
 }
 #footer, .push {
 height: 4.1em;
+}
+.push{
+  clear: both;
 }
 #footer {
     text-align: center;
@@ -92,5 +95,28 @@ height: 4.1em;
 
 
 .more_info{
+
+}
+
+.show_act{
+  padding-bottom: 15px;
+  .button{
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+.search_act{
+  padding-left: 29px;
+  input{
+    font-size: 20px;
+  }
+}
+
+.show_act_info{
+  line-height: 1em;
+}
+
+.filter_act{
 
 }
