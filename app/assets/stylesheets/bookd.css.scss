@@ -1,5 +1,9 @@
 @import 'foundation-social-web-icons';
-
+.media {margin:10px;}
+.media, .bd {overflow:hidden; _overflow:visible; zoom:1;}
+.media .img {float:left; margin-right: 10px;}
+.media .img img{display:block;}
+.media .imgExt{float:right; margin-left: 10px;}
 * {
 margin: 0;
 }
@@ -119,4 +123,13 @@ height: 4.1em;
 
 .filter_act{
 
+}
+
+.show_margin{
+  padding-left: 36px;
+}
+
+.button_left{
+  margin-left:45px;
+  width: 160px;
 }
