@@ -6,9 +6,10 @@
     .row.large-offset-2
       .media.attribtution.show_margin
         = image_tag(act.avatar.url(:show), class: 'img')
-        %h2= act.name
-        %strong= act.category.name
-        %p= act.short_bio
+        .show_content
+          %h2= act.name
+          %strong= act.category.name
+          %p= act.short_bio
       = link_to 'View act', act, class: 'button button_left'
 
 
