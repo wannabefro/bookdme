@@ -1,7 +1,10 @@
 .row
   .search_act.large-12.columns
     %h1 Find your act
-    %input{:placeholder => "Find it here", :type => "text"}/
+    = form_tag acts_path, method: :get do
+      = text_field_tag :query, params[:query], placeholder: 'type your act here', class: 'large-10'
+      = submit_tag 'Search', class: 'button small radius large-2'
+    / %input{:placeholder => "Find it here", :type => "text"}/
   -@acts.each do |act|
     .row.large-offset-2
       .media.attribtution.show_margin

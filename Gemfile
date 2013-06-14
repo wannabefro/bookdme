@@ -18,15 +18,14 @@ gem 'pg'
 gem 'haml-rails'
 gem 'devise'
 gem 'simple_form'
-gem 'ancestry'
 gem 'default_value_for'
 gem 'carrierwave'
 gem 'cancan'
-gem 'omniauth'
 gem 'rails_admin'
 gem 'obscenity'
 gem 'mini_magick'
 gem 'select2-rails'
+gem 'sunspot_rails'
 gem 'zurb-foundation'
 gem 'foundation-social-web-icons-rails', git: "git://github.com/jclusso/foundation-social-web-icons-rails.git"
 
@@ -57,6 +56,8 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'stuffer'
   gem 'email_spec'
+  gem 'progress_bar'
+  gem 'pg_search'
 end
 
 group :development do
