@@ -3,6 +3,7 @@ require 'obscenity/active_model'
 require 'carrierwave/orm/activerecord'
 
 class Act < ActiveRecord::Base
+  include PgSearch
   mount_uploader :avatar, AvatarUploader
 
   attr_accessible :avatar, :biography, :custom_genre, :category_id, :location_id, :name, :price, :rider,
@@ -22,9 +23,22 @@ class Act < ActiveRecord::Base
   belongs_to :location
   belongs_to :price
 
+  pg_search_scope :search, against: [:name, :custom_genre],
+  associated_against: {location: :state, category: :name}
+  # , comments: [:name, :content]},
+
   def owner? current_user
     user == current_user
   end
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end
+
 
 
 end

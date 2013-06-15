@@ -3,9 +3,9 @@
     .large-8.small-8.small-offset-2.large-offset-2.columns.jumbo
       %h1 Find your perfect act now!
       %p Whether it's a band, a clown, a mime, a ballerina, fire-breather, find it here.
-      %input.expand{:placeholder => "type your act here", :type => "text"}/
-
-      %ba.button.radius{:type => "submit"} Search
+      = form_tag acts_path, method: :get do
+        = text_field_tag :query, params[:query], placeholder: 'type your act here', class: 'expand'
+        = submit_tag 'Search', class: 'button radius'
 
 
 .info_container
