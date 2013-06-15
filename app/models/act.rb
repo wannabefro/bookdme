@@ -23,7 +23,9 @@ class Act < ActiveRecord::Base
   belongs_to :location
   belongs_to :price
 
-  pg_search_scope :search, against: [:name]
+  pg_search_scope :search, against: [:name, :custom_genre],
+  associated_against: {location: :state, category: :name}
+  # , comments: [:name, :content]},
 
   def owner? current_user
     user == current_user
@@ -31,7 +33,7 @@ class Act < ActiveRecord::Base
 
   def self.text_search(query)
     if query.present?
-      where("name @@ :q", q: query)
+      search(query)
     else
       scoped
     end

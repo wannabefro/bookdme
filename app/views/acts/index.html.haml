@@ -18,17 +18,3 @@
 
 
 
-  / .filter_act.large-3.columns
-  /   %p All the beautiful filters will go here
-  / - @acts.each do |act|
-  /   .row
-  /     .show_act
-  /       .show_act_image.large-3.columns
-  /         = image_tag(act.avatar.url(:show))
-  /         = link_to 'View act', act, class: 'button'
-  /       .show_act_info.large-6.columns
-  /         %h1= act.name
-  /         %h4= act.category.name
-  /         %p= act.short_bio
-
-
