@@ -6,5 +6,9 @@ FactoryGirl.define do
     last_name 'McTaggart'
     sequence(:email) {|n| "person#{n}@example.com" }
     password 'samsamsam'
+    trait :admin do
+      email 'sam.mctaggart@gmail.com'
+    end
+    factory :admin, traits: [:admin]
   end
 end
