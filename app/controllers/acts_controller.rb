@@ -19,7 +19,9 @@ class ActsController < ApplicationController
   def create
     @act = Act.new(params[:act])
     @act.user_id = current_user.id
+    @user = current_user
     if @act.save
+      UserMailer.act_signup_confirmation(@user, @act).deliver
       redirect_to @act, :notice => "Welcome #{@act.name} to Bookd.me"
     else
       render action: "new"
