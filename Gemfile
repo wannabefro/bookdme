@@ -32,6 +32,7 @@ gem 'foundation-social-web-icons-rails', git: "git://github.com/jclusso/foundati
 
 
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -58,6 +59,8 @@ group :development, :test do
   gem 'email_spec'
   gem 'progress_bar'
   gem 'pg_search'
+  gem 'database_cleaner'
+  gem 'zeus'
 end
 
 group :development do
