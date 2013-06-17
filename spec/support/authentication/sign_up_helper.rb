@@ -22,6 +22,6 @@ module SignUpHelper
     fill_in 'What does your act specialize in', with: act[:custom_genre]
     fill_in 'Tell us about your act in 140 characters or less', with: act[:short_bio]
     select('0-50', from: 'Your hourly rate')
-    click_on 'Create your act'
+    click_on 'Add your act'
   end
 end
