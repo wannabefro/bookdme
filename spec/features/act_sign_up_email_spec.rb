@@ -6,16 +6,16 @@ feature 'receive welcome email on act sign up', %q{
   So that I know that I have signed up and receive basic information
 } do
 
-  given!(:user) { FactoryGirl.create(:user) }
-  given!(:act) { FactoryGirl.create(:act) }
-  given(:prev_count) { ActionMailer::Base.deliveries.count }
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:act) { FactoryGirl.build(:act) }
+  let(:prev_count) { ActionMailer::Base.deliveries.count }
   background(:all) do
     @email = UserMailer.act_signup_confirmation(user, act)
   end
 
   scenario 'an act should receive a welcome email on sign up' do
     prev_count
-    sign_in_act user, act
+    FactoryGirl.create(:act)
     expect(ActionMailer::Base.deliveries.count).to eql(prev_count + 1)
   end
 
