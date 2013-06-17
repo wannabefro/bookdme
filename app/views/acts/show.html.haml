@@ -18,7 +18,7 @@
       = @act.short_bio
     - if !@act.owner? current_user
       %a
-      = link_to 'book me', '#', class: 'button'
+      = link_to 'book me', new_act_proposal_path(@act), class: 'button'
 
 .row.more_info
   .large-12.columns
