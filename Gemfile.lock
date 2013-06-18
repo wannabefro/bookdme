@@ -38,6 +38,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.4)
     arel (3.0.2)
+    babosa (0.3.8)
     bcrypt-ruby (3.0.1)
     better_errors (0.9.0)
       coderay (>= 1.0.0)
@@ -91,6 +92,8 @@ GEM
     font-awesome-rails (3.2.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
+    friendly_id (3.3.0.1)
+      babosa (~> 0.3.0)
     guard (1.8.0)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -294,6 +297,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   foundation-social-web-icons-rails!
+  friendly_id
   guard-rspec
   haml-rails
   jquery-rails

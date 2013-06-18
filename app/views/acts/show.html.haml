@@ -7,8 +7,9 @@
     %p
       = @act.short_bio
     - if !@act.owner? current_user
-      %a
-      = link_to 'book me', new_act_proposal_path(@act), class: 'button'
+      %a{"data-reveal-id" => "myModal", :href => "#", class: 'button'} book me
+      / %a
+      / = link_to 'book me', new_act_proposal_path(@act), class: 'button'
 
 .row.more_info
   .large-12.columns
@@ -38,21 +39,20 @@
           %a{:href => "#panel5"} Reviews
         .content{"data-section-content" => ""}
           %p Reviews
-    / .short_bio
-    /   = @act.short_bio
-    / #show_act_links
-    /   #about_us
-    /     %p
-    /       = "#{@act.name.capitalize} are a #{@act.category.name} act, from #{@act.location.state}."
-    /       %br
-    /       = "In their own words they are #{@act.custom_genre}."
-    /   #biography
-    /     %p
-    /       ="#{@act.biography}"
-    /   #links
-    /     %p
-    /       links
-    /   #review
-    /     %p
-    /       review
+
+#myModal.reveal-modal
+  .row
+    %h1.form_title.large-offset-1.small-offset-1.small-8.columns
+      = "Submit your proposal to #{@act.name}"
+    = simple_form_for [@act, @proposal] do |f|
+      = f.error_notification
+      .large-10.small-10.large-offset-1.small-offset-1.columns
+        .form-inputs
+          = f.input :price, :required => true
+
+          = f.input :date, as: :string, :required => true, input_html: {class: 'datepicker'}
+          = f.input :time, as: :string, :required => true, input_html: {class: 'timepicker' }
+          = f.input :proposal, as: :text, :required => true, input_html: { maxlength: 250}
+          = f.button :submit, "Submit proposal", class: 'button'
+    %a.close-reveal-modal ×
 

@@ -30,6 +30,7 @@ class ActsController < ApplicationController
 
   def show
     @act = Act.find(params[:id])
+    @proposal = @act.proposals.build
   end
 
   def edit

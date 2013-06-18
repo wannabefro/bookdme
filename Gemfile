@@ -29,7 +29,7 @@ gem 'zurb-foundation'
 gem 'foundation-social-web-icons-rails', git: "git://github.com/jclusso/foundation-social-web-icons-rails.git"
 gem 'pickadate-rails'
 gem 'thin'
-
+gem 'friendly_id'
 
 # Gems used only for assets and not required
 # in production environments by default.
