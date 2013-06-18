@@ -14,5 +14,8 @@
  *= require bookd
  *= require ladda
  *= require select2
+ *= require pickadate/default
+ *= require pickadate/default.date
+ *= require pickadate/default.time
  */
 

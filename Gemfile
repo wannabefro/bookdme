@@ -28,9 +28,7 @@ gem 'select2-rails'
 gem 'sunspot_rails'
 gem 'zurb-foundation'
 gem 'foundation-social-web-icons-rails', git: "git://github.com/jclusso/foundation-social-web-icons-rails.git"
-
-
-
+gem 'pickadate-rails'
 
 
 # Gems used only for assets and not required

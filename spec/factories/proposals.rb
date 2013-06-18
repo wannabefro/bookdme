@@ -4,5 +4,8 @@ FactoryGirl.define do
   factory :proposal do
     act_id 1
     user_id 1
+    price 250
+    date Time.now
+    proposal 'Play otherwise we take your daughter'
   end
 end
