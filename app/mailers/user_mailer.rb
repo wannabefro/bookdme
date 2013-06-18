@@ -12,4 +12,18 @@ class UserMailer < ActionMailer::Base
 
     mail to: user.email, subject: 'Act Sign Up Confirmation'
   end
+
+  def act_book_confirmation(user, act)
+    @user = user
+    @act = act
+
+    mail to: user.email, subject: "You just bookd #{@act.name}"
+  end
+
+  def act_proposal(user, act, proposal)
+    @user = user
+    @act = act
+    @proposal = proposal
+    mail to: act.user.email, subject: "#{@user.first_name} wants to book you"
+  end
 end

@@ -23,6 +23,8 @@ class Act < ActiveRecord::Base
   belongs_to :location
   belongs_to :price
 
+  has_many :proposals
+
   pg_search_scope :search, against: [:name, :custom_genre],
   associated_against: {location: :state, category: :name}
   # , comments: [:name, :content]},

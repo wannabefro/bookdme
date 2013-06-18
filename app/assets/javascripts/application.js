@@ -15,6 +15,9 @@
 //= require foundation
 //= require_tree .
 //= require select2
+//= require pickadate/picker
+//= require pickadate/picker.date
+//= require pickadate/picker.time
 
 
 $(function(){ $(document).foundation(); });
