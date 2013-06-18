@@ -1,8 +1,7 @@
 .row
   %h1.form_title.large-offset-1.small-offset-1.small-8.columns
     = "Submit your proposal to #{@act.name}"
-  = simple_form_for [@act, @proposal], :url => url_for(:action => 'create', :controller => 'proposals'),
-  :method => 'post' do |f|
+  = simple_form_for [@act, @proposal] do |f|
     = f.error_notification
     .large-10.small-10.large-offset-1.small-offset-1.columns
       .form-inputs

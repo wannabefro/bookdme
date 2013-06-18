@@ -49,6 +49,7 @@ So that I may successfully hire them
     fill_in 'Price', with: proposal[:price]
     fill_in 'Date', with: proposal[:date]
     fill_in 'Proposal', with: proposal[:proposal]
+    fill_in 'Time', with: proposal[:time]
     click_on 'Submit proposal'
 
     expect(current_path).to eq(act_path(act))
@@ -74,6 +75,7 @@ So that I may successfully hire them
     fill_in 'Price', with: proposal[:price]
     fill_in 'Date', with: proposal[:date]
     fill_in 'Proposal', with: proposal[:proposal]
+    fill_in 'Time', with: proposal[:time]
     click_on 'Submit proposal'
 
     expect(ActionMailer::Base.deliveries.count).to eq(prev_count + 2)
@@ -86,6 +88,7 @@ So that I may successfully hire them
     fill_in 'Price', with: proposal[:price]
     fill_in 'Date', with: proposal[:date]
     fill_in 'Proposal', with: proposal[:proposal]
+    fill_in 'Time', with: proposal[:time]
     click_on 'Submit proposal'
 
     expect(ActionMailer::Base.deliveries.count).to eq(prev_count + 2)

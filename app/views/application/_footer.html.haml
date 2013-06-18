@@ -25,23 +25,6 @@
   });
 :javascript
   $(function() {
-    $('.datepicker').pickadate({
-      // Escape any “rule” characters with an exclamation mark (!).
-      format: 'You selecte!d: dddd, dd mmm, yyyy',
-      formatSubmit: 'yyyy/mm/dd',
-      hiddenSuffix: '--submit',
-      onClose: function() {
-        $('.timepicker').click(function() {
-          $('.timepicker').pickatime();
-        });
-
-      }
-    });
-
-    // debugger;
-
-    // datepicker.on('onClose', function() {
-    //   debugger;
-    //   $('.datepicker').pickatime();
-    // });
-  });
+    $('.datepicker').pickadate();
+    $('.timepicker').pickatime();
+  })
