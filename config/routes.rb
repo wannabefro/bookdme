@@ -3,7 +3,9 @@ BookdMe::Application.routes.draw do
 
   get "about/index"
 
-  resources :acts
+  resources :acts do
+    resources :proposals, only: [:create, :new]
+  end
 
   devise_for :users
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'

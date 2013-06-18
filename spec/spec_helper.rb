@@ -63,6 +63,9 @@ RSpec.configure do |config|
     end
   end
 
+  config.filter_run :focus => true
+  config.run_all_when_everything_filtered = true
+
   if defined?(CarrierWave)
   CarrierWave::Uploader::Base.descendants.each do |klass|
     next if klass.anonymous?
