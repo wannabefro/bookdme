@@ -21,7 +21,6 @@ So that I may successfully hire them
     click_on 'book me'
 
     expect(page).to have_content("Submit your proposal to #{act.name}")
-    expect(current_path).to eql(new_act_proposal_path(act))
   end
 
   scenario 'if a user is not logged in and click on book me they are redirected to the sign in path' do

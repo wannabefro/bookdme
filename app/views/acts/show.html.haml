@@ -7,10 +7,10 @@
     %p
       = @act.short_bio
     - if !@act.owner? current_user
-      %a{"data-reveal-id" => "myModal", :href => "#", class: 'button'} book me
-      / %a
-      / = link_to 'book me', new_act_proposal_path(@act), class: 'button'
-
+      - if user_signed_in?
+        %a{"data-reveal-id" => "myModal", :href => "#", class: 'button'} book me
+      - else
+        = link_to 'book me', new_act_proposal_path(@act), class: 'button'
 .row.more_info
   .large-12.columns
     .section-container.auto{"data-section" => ""}
