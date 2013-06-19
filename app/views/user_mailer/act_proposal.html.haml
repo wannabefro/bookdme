@@ -1,9 +1,9 @@
 = "Good news #{@act.name}"
 
 = "#{@user.first_name} #{@user.last_name} wants to book you!"
-= "You can reply directly to #{@user.first_name} with #{@user.email}."
+= "You can reply directly to #{@user.first_name} at #{@user.email}."
 Here are the details:
-= "#{@user.first_name} wants to book you for the #{@proposal.date}"
+= "#{@user.first_name} wants to book you for the #{@proposal.date.strftime('%A, %b %d')} at #{@proposal.time.strftime('%l:%M %p')}"
 = "#{@user.first_name} is offering #{@proposal.price}"
 = "#{@user.first_name} supplied the following extra information:"
 = "#{@proposal.proposal}"
