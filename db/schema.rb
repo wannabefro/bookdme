@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130619204410) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "media", :force => true do |t|
+  create_table "media_posts", :force => true do |t|
     t.string   "url",        :null => false
     t.string   "media_type", :null => false
     t.integer  "act_id",     :null => false

@@ -24,7 +24,7 @@ class Act < ActiveRecord::Base
   belongs_to :price
 
   has_many :proposals
-  has_many :medias
+  has_many :media_posts
 
   pg_search_scope :search, against: [:name, :custom_genre],
   associated_against: {location: :state, category: :name}

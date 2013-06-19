@@ -1,3 +1,5 @@
 .row
   %h1
     = "Edit your act #{current_user.act.name}"
+  %a
+    = link_to 'Add media', new_act_media_post_path(@act), class: 'button'

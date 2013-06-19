@@ -286,6 +286,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   better_errors
   cancan
   capybara
