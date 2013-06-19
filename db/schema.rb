@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619175201) do
+ActiveRecord::Schema.define(:version => 20130619200224) do
 
   create_table "acts", :force => true do |t|
     t.integer  "user_id",      :null => false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130619175201) do
     t.text     "proposal",   :null => false
     t.date     "date",       :null => false
     t.time     "time",       :null => false
+    t.integer  "venue_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -108,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20130619175201) do
     t.string   "city",        :null => false
     t.string   "kind"
     t.string   "zipcode"
+    t.string   "name",        :null => false
   end
 
 end

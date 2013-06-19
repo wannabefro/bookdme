@@ -29,6 +29,7 @@ let(:user) { FactoryGirl.create(:user) }
 
     sign_in_as user
     visit new_venue_path
+    fill_in 'Name', with: venue[:name]
     select('House', from: 'What kind of venue is it?')
     fill_in 'Capacity', with: venue[:capacity]
     fill_in 'City', with: venue[:city]

@@ -9,6 +9,7 @@ So that I may successfully hire them
   let!(:user) { FactoryGirl.create(:user) }
   let!(:act) { FactoryGirl.create(:act) }
   let!(:proposal) { FactoryGirl.create(:proposal) }
+  let!(:venue) { FactoryGirl.create(:venue) }
   let(:setup) do
     sign_in_as user
     visit act_path(act)
@@ -37,6 +38,7 @@ So that I may successfully hire them
     fill_in 'Price', with: proposal[:price]
     fill_in 'Date', with: proposal[:date]
     fill_in 'Proposal', with: proposal[:proposal]
+    select(venue[:name], from: 'Venue')
 
     expect(page).to have_content(proposal[:proposal])
   end
@@ -46,6 +48,7 @@ So that I may successfully hire them
     prev_count = Proposal.count
 
     fill_in 'Price', with: proposal[:price]
+    select(venue[:name], from: 'Venue')
     fill_in 'Date', with: proposal[:date]
     fill_in 'Proposal', with: proposal[:proposal]
     fill_in 'Time', with: proposal[:time]
@@ -73,6 +76,7 @@ So that I may successfully hire them
 
     fill_in 'Price', with: proposal[:price]
     fill_in 'Date', with: proposal[:date]
+    select(venue[:name], from: 'Venue')
     fill_in 'Proposal', with: proposal[:proposal]
     fill_in 'Time', with: proposal[:time]
     click_on 'Submit proposal'
@@ -86,6 +90,7 @@ So that I may successfully hire them
 
     fill_in 'Price', with: proposal[:price]
     fill_in 'Date', with: proposal[:date]
+    select(venue[:name], from: 'Venue')
     fill_in 'Proposal', with: proposal[:proposal]
     fill_in 'Time', with: proposal[:time]
     click_on 'Submit proposal'
