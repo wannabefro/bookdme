@@ -8,6 +8,11 @@ BookdMe::Application.routes.draw do
   end
 
   devise_for :users
+
+  resources :users, only: [] do
+    resources :venues, only: [:created, :new]
+  end
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   root :to => "welcome#index"
