@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619200224) do
+ActiveRecord::Schema.define(:version => 20130619204410) do
 
   create_table "acts", :force => true do |t|
     t.integer  "user_id",      :null => false
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(:version => 20130619200224) do
 
   create_table "locations", :force => true do |t|
     t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "media", :force => true do |t|
+    t.string   "url",        :null => false
+    t.string   "media_type", :null => false
+    t.integer  "act_id",     :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
