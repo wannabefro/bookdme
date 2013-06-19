@@ -3,4 +3,5 @@ class Location < ActiveRecord::Base
 
   has_many :acts
   has_many :venues
+  validates_presence_of :state
 end

@@ -9,9 +9,7 @@ BookdMe::Application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [] do
-    resources :venues, only: [:created, :new]
-  end
+  resources :venues, only: [:create, :new]
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
