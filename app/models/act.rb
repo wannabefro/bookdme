@@ -1,6 +1,5 @@
 
 require 'obscenity/active_model'
-require 'carrierwave/orm/activerecord'
 
 class Act < ActiveRecord::Base
   include PgSearch

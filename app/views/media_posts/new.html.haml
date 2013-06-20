@@ -1,11 +1,17 @@
 .row
   %h1 Add media
-  %a{"data-reveal-id" => "myVideo", :href => "#", class: 'button'}
-    Add video
-  %a{"data-reveal-id" => "myAudio", :href => '#', class: 'button'}
-    Add audio
-  %a{"data-reveal-id" => 'myPictures', :href => '#', class: 'button'}
-    Add pictures
+  .video
+    %a{"data-reveal-id" => "myVideo", :href => "#", class: 'button'}
+      Add video
+  .audio
+    %a{"data-reveal-id" => "myAudio", :href => '#', class: 'button'}
+      Add audio
+    - client = Soundcloud.new
+    - client.fetch('https://soundcloud.com/aviciiofficial/avicii-promotional-mix-2013')
+
+  .picture
+    %a{"data-reveal-id" => 'myPictures', :href => '#', class: 'button'}
+      Add pictures
 
 
 #myVideo.reveal-modal
@@ -28,7 +34,8 @@
   .h1
     = form_for [@act, @media] do |f|
       = f.label :act_url, 'Upload Images:'
-      = f.filepicker_field :act_url, class: 'button', multiple: true, mimetype: 'image/*', onchange: true
+      = f.filepicker_field :act_url, class: 'button', mimetype: 'image/*', onchange: "$('#getContent').html('<img src='+event.fpfiles[0].url+' width=160 height=160 />');"
       = f.hidden_field :media_type, value: 'image'
-      = f.submit 'Submit pictures', class: 'button'
+      = f.submit 'Submit picture', class: 'button'
+      #getContent
   %a.close-reveal-modal ×

@@ -29,6 +29,7 @@ gem 'pickadate-rails'
 gem 'thin'
 gem 'friendly_id'
 gem 'filepicker-rails'
+gem 'oembed'
 
 # Gems used only for assets and not required
 # in production environments by default.

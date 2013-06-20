@@ -11,7 +11,8 @@
       .form-inputs
         = f.input :name, :required => true, :autofocus => true
         = f.label :avatar, 'Upload profile picture:'
-        = f.filepicker_field :avatar, class: 'small button'
+        #getContent
+        = f.filepicker_field :avatar, class: 'small button pad_button', mimetype: 'image/*', onchange: "$('#getContent').html('<img src='+event.fpfiles[0].url+' width=160 height=160 />');"
         = f.input :website
         = f.association :category,
           collection: Category.all,
