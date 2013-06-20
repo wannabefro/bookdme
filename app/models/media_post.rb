@@ -4,9 +4,9 @@ class MediaPost < ActiveRecord::Base
 
   before_validation :valid_youtube, :valid_soundcloud
   before_create :parse_youtube
-  attr_accessible :act, :media_type, :url
+  attr_accessible :act, :media_type, :url, :act_url
 
-  MEDIA = %w[youtube soundcloud]
+  MEDIA = %w[youtube soundcloud image]
 
   validates_presence_of :act, :media_type, :url
   validates :media_type, inclusion: {in: MEDIA}

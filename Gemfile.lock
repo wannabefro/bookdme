@@ -55,9 +55,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    carrierwave (0.8.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -92,6 +89,9 @@ GEM
     faye-websocket (0.4.7)
       eventmachine (>= 0.12.0)
     ffi (1.9.0)
+    filepicker-rails (0.1)
+      multi_json (~> 1.6)
+      railties (>= 3.1.0, < 5.0)
     font-awesome-rails (3.2.0.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
@@ -140,8 +140,6 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.23)
-    mini_magick (3.6.0)
-      subexec (~> 0.2.1)
     mini_portile (0.5.0)
     multi_json (1.7.7)
     nested_form (0.3.2)
@@ -261,7 +259,6 @@ GEM
     stuffer (0.0.4)
       capybara
       factory_girl_rails
-    subexec (0.2.3)
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -289,25 +286,23 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  addressable
   better_errors
   binding_of_caller
   cancan
   capybara
-  carrierwave
   coffee-rails (~> 3.2.1)
   database_cleaner
   default_value_for
   devise
   email_spec
   factory_girl_rails
+  filepicker-rails
   foundation-social-web-icons-rails!
   friendly_id
   guard-rspec
   haml-rails
   jquery-rails
   launchy
-  mini_magick
   obscenity
   pg
   pg_search

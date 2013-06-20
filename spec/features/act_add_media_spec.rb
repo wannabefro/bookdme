@@ -33,17 +33,6 @@ feature 'act adding media to show page', %q{
     expect(page).to have_content('Successfully added audio')
   end
 
-  scenario 'I can add pictures to my media', focus: true do
-    image_path = Rails.root + 'spec/support/images/placeholder.gif'
-    go_to_media_page
-    click_on 'Add pictures'
-    within "#myPictures" do
-      attach_file('Choose files', image_path)
-      attach_file('Choose files', image_path)
-    end
-    expect(page).to have_content('Successfully added pictures')
-  end
-
   def go_to_media_page
     sign_in_act user, act
     visit edit_act_path(act)

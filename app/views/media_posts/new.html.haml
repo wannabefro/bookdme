@@ -26,8 +26,9 @@
 
 #myPictures.reveal-modal
   .h1
-    = simple_form_for [@act, @media] do |f|
-      = f.input :avatar, label: 'Upload images'
-      = f.hidden_field :media_type, value: 'soundcloud'
-      = f.submit 'Choose files', class: 'button'
+    = form_for [@act, @media] do |f|
+      = f.label :act_url, 'Upload Images:'
+      = f.filepicker_field :act_url, class: 'button', multiple: true, mimetype: 'image/*', onchange: true
+      = f.hidden_field :media_type, value: 'image'
+      = f.submit 'Submit pictures', class: 'button'
   %a.close-reveal-modal ×

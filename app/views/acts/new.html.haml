@@ -4,14 +4,15 @@
       = "Sign up your act #{current_user.first_name}"
     - else
       = "Sign up your act"
+
   = simple_form_for @act do |f|
     = f.error_notification
     .large-10.small-10.large-offset-1.small-offset-1.columns
       .form-inputs
         = f.input :name, :required => true, :autofocus => true
+        = f.label :avatar, 'Upload profile picture:'
+        = f.filepicker_field :avatar, class: 'small button'
         = f.input :website
-        = f.input :avatar
-        = f.hidden_field :avatar_cache
         = f.association :category,
           collection: Category.all,
           include_blank: true,

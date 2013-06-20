@@ -19,18 +19,16 @@ gem 'haml-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'default_value_for'
-gem 'carrierwave'
 gem 'cancan'
 gem 'rails_admin'
 gem 'obscenity'
-gem 'mini_magick'
 gem 'select2-rails'
 gem 'zurb-foundation'
 gem 'foundation-social-web-icons-rails', git: "git://github.com/jclusso/foundation-social-web-icons-rails.git"
 gem 'pickadate-rails'
 gem 'thin'
 gem 'friendly_id'
-gem 'addressable'
+gem 'filepicker-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

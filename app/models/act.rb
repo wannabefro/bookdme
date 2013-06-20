@@ -4,10 +4,10 @@ require 'carrierwave/orm/activerecord'
 
 class Act < ActiveRecord::Base
   include PgSearch
-  mount_uploader :avatar, AvatarUploader
+
 
   attr_accessible :avatar, :biography, :custom_genre, :category_id, :location_id, :name, :price, :rider,
-                  :travel_range, :user_id, :website, :avatar_cache, :short_bio, :price_id, :remove_avatar
+                  :travel_range, :user_id, :website, :short_bio, :price_id
 
   validates :name, presence: true, obscenity: { message: 'No obscenity allowed in the act name' }
   validates :category, presence: true

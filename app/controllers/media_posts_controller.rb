@@ -23,8 +23,10 @@ class MediaPostsController < ApplicationController
   def media_type media
     if media == 'youtube'
       'video'
-    else
+    elsif media == 'soundcloud'
       'audio'
+    elsif media == 'image'
+      'pictures'
     end
   end
 
