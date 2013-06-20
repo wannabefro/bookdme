@@ -34,6 +34,6 @@ feature 'receive email on submition on proposal', %q{
   scenario 'the email should have the users proposal' do
     @email.should have_body_text(proposal.price.to_s)
     @email.should have_body_text(proposal.proposal)
-    @email.should have_body_text(proposal.date.to_s)
+    @email.should have_body_text(proposal.date.strftime('%A, %b %d'))
   end
 end

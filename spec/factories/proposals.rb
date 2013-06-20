@@ -8,5 +8,6 @@ FactoryGirl.define do
     time Time.now
     date Time.now
     proposal 'Play otherwise we take your daughter'
+    association :venue
   end
 end

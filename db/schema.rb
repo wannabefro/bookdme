@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618173903) do
+ActiveRecord::Schema.define(:version => 20130619204410) do
 
   create_table "acts", :force => true do |t|
     t.integer  "user_id",      :null => false
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(:version => 20130618173903) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "media_posts", :force => true do |t|
+    t.string   "url",        :null => false
+    t.string   "media_type", :null => false
+    t.integer  "act_id",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "prices", :force => true do |t|
     t.string   "range"
     t.datetime "created_at", :null => false
@@ -59,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130618173903) do
     t.text     "proposal",   :null => false
     t.date     "date",       :null => false
     t.time     "time",       :null => false
+    t.integer  "venue_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -98,5 +107,17 @@ ActiveRecord::Schema.define(:version => 20130618173903) do
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "venues", :force => true do |t|
+    t.integer  "location_id", :null => false
+    t.integer  "user_id",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "capacity",    :null => false
+    t.string   "city",        :null => false
+    t.string   "kind"
+    t.string   "zipcode"
+    t.string   "name",        :null => false
+  end
 
 end

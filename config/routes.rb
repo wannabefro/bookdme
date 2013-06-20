@@ -5,9 +5,13 @@ BookdMe::Application.routes.draw do
 
   resources :acts do
     resources :proposals, only: [:create, :new]
+    resources :media_posts, only: [:create, :new, :edit]
   end
 
   devise_for :users
+
+  resources :venues, only: [:create, :new]
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   root :to => "welcome#index"

@@ -1,0 +1,17 @@
+.row
+  %h1.form_title.large-offset-1.small-offset-1.small-8.columns
+    Add your venue
+  = simple_form_for @venue do |f|
+    = f.error_notification
+    .large-10.small-10.large-offset-1.small-offset-1.columns
+      .form-inputs
+      = f.input :name, required: true
+      = f.input :kind, collection: Venue::TYPE, required: true, input_html: { class: 'select-nice', style: 'width: 100%;' }
+      = f.input :capacity, required: true
+      = f.input :city, required: true
+      = f.association :location,
+        label_method: :state,
+        include_blank: true,
+        input_html: { class: 'select-nice', style: 'width: 100%;' }
+      = f.input :zipcode, required: true
+      = f.button :submit, "Add venue", class: 'button'

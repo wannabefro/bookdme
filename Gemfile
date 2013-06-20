@@ -30,6 +30,7 @@ gem 'foundation-social-web-icons-rails', git: "git://github.com/jclusso/foundati
 gem 'pickadate-rails'
 gem 'thin'
 gem 'friendly_id'
+gem 'addressable'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -62,7 +63,8 @@ group :development, :test do
 end
 
 group :development do
-    gem 'better_errors'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'jquery-rails'

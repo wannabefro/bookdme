@@ -21,6 +21,9 @@
       %li.divider
       - if user_signed_in?
         %li
+          = link_to new_venue_path do
+            ADD A VENUE
+        %li
           = link_to destroy_user_session_path, :method => :delete do
             LOGOUT
       - else
