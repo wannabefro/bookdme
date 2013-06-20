@@ -2,6 +2,10 @@
   %h1 Add media
   %a{"data-reveal-id" => "myVideo", :href => "#", class: 'button'}
     Add video
+  %a{"data-reveal-id" => "myAudio", :href => '#', class: 'button'}
+    Add audio
+  %a{"data-reveal-id" => 'myPictures', :href => '#', class: 'button'}
+    Add pictures
 
 
 #myVideo.reveal-modal
@@ -10,4 +14,20 @@
       = f.input :url, label: 'Youtube Url'
       = f.hidden_field :media_type, value: 'youtube'
       = f.submit 'Submit video', class: 'button'
+  %a.close-reveal-modal ×
+
+#myAudio.reveal-modal
+  .h1
+    = simple_form_for [@act, @media] do |f|
+      = f.input :url, label: 'Soundcloud Url'
+      = f.hidden_field :media_type, value: 'soundcloud'
+      = f.submit 'Submit audio', class: 'button'
+  %a.close-reveal-modal ×
+
+#myPictures.reveal-modal
+  .h1
+    = simple_form_for [@act, @media] do |f|
+      = f.input :avatar, label: 'Upload images'
+      = f.hidden_field :media_type, value: 'soundcloud'
+      = f.submit 'Choose files', class: 'button'
   %a.close-reveal-modal ×

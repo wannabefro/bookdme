@@ -28,4 +28,21 @@ describe MediaPost do
     end
 
   end
+
+  describe 'with a soundcloud url' do
+    let(:soundcloud) { FactoryGirl.build(:media_post, media_type: 'soundcloud')}
+
+      it 'should validate a soundcloud url' do
+        prev_count = MediaPost.count
+        soundcloud.url = 'https://soundcloud.com/aviciiofficial/avicii-promotional-mix-2013'
+        soundcloud.save
+        expect(MediaPost.count).to eql(prev_count + 1)
+      end
+
+      it "it shouldn't save a non soundcloud link" do
+        soundcloud.url = 'bbc.com'
+        expect(soundcloud).to_not be_valid
+      end
+
+  end
 end

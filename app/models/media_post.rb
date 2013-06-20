@@ -2,7 +2,7 @@ require 'addressable/uri'
 
 class MediaPost < ActiveRecord::Base
 
-  before_validation :valid_youtube
+  before_validation :valid_youtube, :valid_soundcloud
   before_create :parse_youtube
   attr_accessible :act, :media_type, :url
 
@@ -27,5 +27,13 @@ class MediaPost < ActiveRecord::Base
       validates_format_of :url, with: /(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?(\w{10,})/
     end
   end
+
+  def valid_soundcloud
+    if self.media_type == 'soundcloud'
+      validates_format_of :url, with: /(?:https?:\/\/)?(?:www\.)?(soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|snd\.sc\/.*)/
+    end
+  end
+
+# embedly_re = Regexp.new(/http:\/\/(soundcloud\.com\/.*|soundcloud\.com\/.*\/.*|soundcloud\.com\/.*\/sets\/.*|soundcloud\.com\/groups\/.*|snd\.sc\/.*)/i)
 
 end
