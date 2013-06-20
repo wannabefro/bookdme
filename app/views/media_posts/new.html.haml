@@ -1,0 +1,13 @@
+.row
+  %h1 Add media
+  %a{"data-reveal-id" => "myVideo", :href => "#", class: 'button'}
+    Add video
+
+
+#myVideo.reveal-modal
+  .h1
+    = simple_form_for [@act, @media] do |f|
+      = f.input :url, label: 'Youtube Url'
+      = f.hidden_field :media_type, value: 'youtube'
+      = f.submit 'Submit video', class: 'button'
+  %a.close-reveal-modal ×
