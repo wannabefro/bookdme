@@ -3,7 +3,6 @@ require 'addressable/uri'
 class MediaPost < ActiveRecord::Base
 
   before_validation :valid_youtube, :valid_soundcloud
-  before_create :parse_youtube
   attr_accessible :act, :media_type, :url, :act_url
 
   MEDIA = %w[youtube soundcloud image]
@@ -14,13 +13,6 @@ class MediaPost < ActiveRecord::Base
 
 
   private
-
-  def parse_youtube
-    if self.media_type == 'youtube'
-      regex = /^(?:http:\/\/)?(?:www\.)?\w*\.\w*\/(?:watch\?v=)?((?:p\/)?[\w\-]+)/
-      self.url = self.url.match(regex)[1]
-    end
-  end
 
   def valid_youtube
     if self.media_type == 'youtube'

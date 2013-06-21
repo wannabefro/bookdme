@@ -12,14 +12,13 @@ describe MediaPost do
 
   describe 'with a youtube url' do
     it 'should save only the id of a standard youtube url' do
-      media.save
-      expect(MediaPost.last.url).to eql('xEhaVhta7sI')
+      media
+      expect(media).to be_valid
     end
 
     it 'should save other formatted youtube links' do
       media.url = 'http://youtu.be/xEhaVhta7sI'
-      media.save
-      expect(MediaPost.last.url).to eql('xEhaVhta7sI')
+      expect(media).to be_valid
     end
 
     it "shouldn't save non youtube links" do

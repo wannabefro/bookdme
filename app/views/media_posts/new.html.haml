@@ -3,11 +3,13 @@
   .video
     %a{"data-reveal-id" => "myVideo", :href => "#", class: 'button'}
       Add video
+    - video = Youtube.new
+    - video.fetch('http://youtu.be/xEhaVhta7sI')
   .audio
     %a{"data-reveal-id" => "myAudio", :href => '#', class: 'button'}
       Add audio
-    - client = Soundcloud.new
-    - client.fetch('https://soundcloud.com/aviciiofficial/avicii-promotional-mix-2013')
+    - audio = Soundcloud.new
+    - audio.fetch('https://soundcloud.com/aviciiofficial/avicii-promotional-mix-2013')
 
   .picture
     %a{"data-reveal-id" => 'myPictures', :href => '#', class: 'button'}
