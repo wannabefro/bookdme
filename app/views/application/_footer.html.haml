@@ -25,7 +25,15 @@
            .siblings().removeClass("active");
   });
 :javascript
+  document.write('<script src=/js/vendor/'
+    + ('__proto__' in {} ? 'zepto' : 'jquery')
+    + '.js><\/script>');
+:javascript
   $(function() {
-    $('.datepicker').pickadate();
-    $('.timepicker').pickatime();
+    $('.datepicker').pickadate({
+      min: true
+    });
+    $('.timepicker').pickatime({
+      min: [6,00]
+    });
   })

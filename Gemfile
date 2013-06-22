@@ -59,6 +59,7 @@ group :development, :test do
   gem 'pg_search'
   gem 'database_cleaner'
   gem 'zeus'
+  gem 'pry-plus'
 end
 
 group :development do

@@ -11,6 +11,7 @@ feature 'act adding media to show page', %q{
 
   let(:user) { FactoryGirl.create(:user) }
   let(:act) { FactoryGirl.create(:act) }
+  let(:media) { FactoryGirl.create_list(:media_post, 3, act: act) }
 
 
   scenario 'I can add a youtube video to my media' do
@@ -32,6 +33,7 @@ feature 'act adding media to show page', %q{
     end
     expect(page).to have_content('Successfully added audio')
   end
+
 
   def go_to_media_page
     sign_in_act user, act
