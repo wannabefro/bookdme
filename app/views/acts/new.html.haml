@@ -4,14 +4,16 @@
       = "Sign up your act #{current_user.first_name}"
     - else
       = "Sign up your act"
+
   = simple_form_for @act do |f|
     = f.error_notification
     .large-10.small-10.large-offset-1.small-offset-1.columns
       .form-inputs
         = f.input :name, :required => true, :autofocus => true
+        = f.label :avatar, 'Upload profile picture:'
+        #getContent
+        = f.filepicker_field :avatar, class: 'small button pad_button', mimetype: 'image/*', onchange: "$('#getContent').html('<img src='+event.fpfiles[0].url+' width=160 height=160 />');"
         = f.input :website
-        = f.input :avatar
-        = f.hidden_field :avatar_cache
         = f.association :category,
           collection: Category.all,
           include_blank: true,

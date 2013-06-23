@@ -13,7 +13,6 @@ let(:info) {
   fill_in 'Name', with: act[:name]
   select('Dancer', :from => 'What kind of act are you')
   select('Florida', :from => 'Where are you based')
-  attach_file('Upload your image', image_path)
   fill_in 'What does your act specialize in', with: act[:custom_genre]
   fill_in 'Tell us about your act in 140 characters or less', with: act[:short_bio]
   select('0-50', from: 'Your hourly rate')

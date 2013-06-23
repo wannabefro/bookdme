@@ -1,7 +1,7 @@
 class MediaPostsController < ApplicationController
   before_filter :act_owner
 
-  def new
+  def index
     @act = Act.find(params[:act_id])
     @media = @act.media_posts.build
   end
@@ -9,11 +9,10 @@ class MediaPostsController < ApplicationController
   def create
     @act = Act.find(params[:act_id])
     @media = @act.media_posts.new(params[:media_post])
-
     if @media.save
-      redirect_to :back, notice: "Successfully added #{media_type(@media.media_type)}"
+      redirect_to act_media_posts_path(@act), notice: "Successfully added #{media_type(@media.media_type)}"
     else
-      render 'new'
+      render 'index'
     end
   end
 
@@ -23,8 +22,10 @@ class MediaPostsController < ApplicationController
   def media_type media
     if media == 'youtube'
       'video'
-    else
+    elsif media == 'soundcloud'
       'audio'
+    elsif media == 'image'
+      'pictures'
     end
   end
 

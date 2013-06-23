@@ -8,12 +8,13 @@
   -@acts.each do |act|
     .row.large-offset-2
       .media.attribtution.show_margin
-        = image_tag(act.avatar.url(:show), class: 'img')
+        .img= filepicker_image_tag act.avatar, w: 160, h: 160, fit: 'clip'
         .show_content
           %h2= act.name
           %strong= act.category.name
           %p= act.short_bio
       = link_to 'View act', act, class: 'button button_left'
+
 
 
 

@@ -11,18 +11,30 @@ feature 'act adding media to show page', %q{
 
   let(:user) { FactoryGirl.create(:user) }
   let(:act) { FactoryGirl.create(:act) }
+  let(:media) { FactoryGirl.create_list(:media_post, 3, act: act) }
 
 
   scenario 'I can add a youtube video to my media' do
     go_to_media_page
     click_on 'Add video'
-    fill_in 'Youtube Url', with: 'http://www.youtube.com/watch?v=J11uu8L8FTY'
-    click_on 'Submit video'
+    within "#myVideo" do
+      fill_in 'Youtube Url', with: 'http://www.youtube.com/watch?v=J11uu8L8FTY'
+      click_on 'Submit video'
+    end
     expect(page).to have_content('Successfully added video')
   end
 
-  scenario 'I can add a soundcloud link to my media'
-  scenario 'I can add pictures to my media'
+  scenario 'I can add a soundcloud link to my media' do
+    go_to_media_page
+    click_on 'Add audio'
+    within "#myAudio" do
+      fill_in 'Soundcloud Url', with: 'https://soundcloud.com/aviciiofficial/avicii-promotional-mix-2013'
+      click_on 'Submit audio'
+    end
+    expect(page).to have_content('Successfully added audio')
+  end
+
+
   def go_to_media_page
     sign_in_act user, act
     visit edit_act_path(act)
