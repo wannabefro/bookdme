@@ -1,0 +1,57 @@
+.row
+  %h1 Add media
+  .video.row
+    - @act.media_posts.where(media_type: 'youtube').each do |youtube|
+      - video = Youtube.new
+      .large-4.columns= raw(video.fetch(youtube[:url], maxwidth: 320)['html'])
+  .video_link
+    - if @act.media_posts.where(media_type: 'youtube').count < 3
+      %a{"data-reveal-id" => "myVideo", :href => "#", class: 'button'}
+        Add video
+    - else
+      %span.has-tip{"data-tooltip" => "", :title => "You can only have 3 Youtube videos. Delete some to add more."}
+        %a{"data-reveal-id" => "myVideo", :href => "#", class: 'button disabled'}
+          Add video
+
+  .audio.row
+    -@act.media_posts.where(media_type: 'soundcloud').each do |soundcloud|
+      - audio = Soundcloud.new
+      .large-4.columns= raw(audio.fetch(soundcloud[:url], maxwidth: 320, maxheight: 81, show_comments: false, color: '#34495E')['html'])
+  .audio_link
+    %a{"data-reveal-id" => "myAudio", :href => '#', class: 'button'}
+      Add audio
+
+  .picture.row
+    -@act.media_posts.where(media_type: 'image').each do |image|
+      .large-2.columns= filepicker_image_tag image[:url], w: 160, h: 160, fit: 'clip'
+  .picture_link
+    %a{"data-reveal-id" => 'myPictures', :href => '#', class: 'button'}
+      Add pictures
+  = link_to 'Delete selected', '#', class: 'button alert small'
+
+
+#myVideo.reveal-modal
+  .h1
+    = simple_form_for [@act, @media] do |f|
+      = f.input :url, label: 'Youtube Url'
+      = f.hidden_field :media_type, value: 'youtube'
+      = f.submit 'Submit video', class: 'button'
+  %a.close-reveal-modal ×
+
+#myAudio.reveal-modal
+  .h1
+    = simple_form_for [@act, @media] do |f|
+      = f.input :url, label: 'Soundcloud Url'
+      = f.hidden_field :media_type, value: 'soundcloud'
+      = f.submit 'Submit audio', class: 'button'
+  %a.close-reveal-modal ×
+
+#myPictures.reveal-modal
+  .h1
+    = form_for [@act, @media] do |f|
+      = f.label :act_url, 'Upload Images:'
+      = f.filepicker_field :url, class: 'button', mimetype: 'image/*', onchange: "$('#getContent').html('<img src='+event.fpfiles[0].url+' width=160 height=160 />');"
+      = f.hidden_field :media_type, value: 'image'
+      = f.submit 'Submit picture', class: 'button'
+      #getContent
+  %a.close-reveal-modal ×
