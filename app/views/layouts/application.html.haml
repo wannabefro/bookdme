@@ -14,6 +14,7 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title= content_for?(:title) ? yield(:title) : "Bookd.me"
     = stylesheet_link_tag    "application"
+    %link{:href => "http://fotorama.s3.amazonaws.com/4.1.9/fotorama.css", :rel => "stylesheet"}/
     = javascript_include_tag "vendor/custom.modernizr"
     = csrf_meta_tags
   %body
@@ -25,3 +26,4 @@
 
     .push
     = render 'footer'
+    = yield :extra_footer

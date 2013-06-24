@@ -89,5 +89,19 @@ describe MediaPost do
     end
   end
 
+  describe 'an act can only have one background image' do
+    let!(:act) { FactoryGirl.create(:act) }
+    let!(:prev_count) { MediaPost.count }
+    let!(:image) { FactoryGirl.create(:image_post, media_type: 'background', act: act) }
+    it 'should allow me to upload 1 background image' do
+      expect(MediaPost.count).to eql(prev_count + 1)
+    end
+
+    it 'should not allow me to upload more than 1' do
+      second = FactoryGirl.build(:image_post, media_type: 'background', act: act)
+      expect(second).to_not be_valid
+    end
+  end
+
 end
 

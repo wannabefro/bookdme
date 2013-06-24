@@ -37,7 +37,7 @@ class ActsController < ApplicationController
     if user_signed_in?
       @user = current_user
       if @user.act
-        @act = Act.find_by_id(@user.act.id)
+        @act = Act.find_by_id(@user.act)
       else
         redirect_to acts_path, alert: 'You must have an act to edit it - idiot'
       end

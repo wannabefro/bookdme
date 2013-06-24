@@ -144,6 +144,7 @@ GEM
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
     lumberjack (1.0.3)
+    magnific-popup-rails (0.8.9)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -337,6 +338,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   launchy
+  magnific-popup-rails
   obscenity
   oembed
   pg

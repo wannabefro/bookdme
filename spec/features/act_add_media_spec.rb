@@ -38,6 +38,6 @@ feature 'act adding media to show page', %q{
   def go_to_media_page
     sign_in_act user, act
     visit edit_act_path(act)
-    click_on 'Add media'
+    click_on 'Your media'
   end
 end

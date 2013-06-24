@@ -19,19 +19,31 @@
     .section-container.auto{"data-section" => ""}
       %section
         %p.title{"data-section-title" => ""}
-          %a{:href => "#panel1"} Biography
+          %a{:href => "#bio"} Biography
         .content{"data-section-content" => ""}
           %p= @act.biography
       %section
         %p.title{"data-section-title" => ""}
-          %a{:href => "#panel2"} About Us
+          %a{:href => "#aboutus"} About Us
         .content{"data-section-content" => ""}
           %p About Us
-      %section
-        %p.title{"data-section-title" => ""}
-          %a{:href => "#panel3"} Media
-        .content{"data-section-content" => ""}
-          %p Media
+      - if @act.media_posts.where(media_type: 'youtube').count != 0 || @act.owner?(current_user)
+        %section
+          %p.title{"data-section-title" => ""}
+            %a{:href => "#video"} Video
+          .content.youtube{"data-section-content" => ""}
+            - @act.media_posts.where(media_type: 'youtube').each do |video|
+              - youtube = Youtube.new
+              - youtube = youtube.fetch(video[:url])
+              = raw("<a href=#{video.url}><img src=#{youtube['thumbnail_url']} width=300></a>")
+      - if @act.media_posts.where(media_type: 'soundcloud').count != 0 || @act.owner?(current_user)
+        %section
+          %p.title{"data-section-title" => ""}
+            %a{:href => "#audio"} Audio
+          .content{"data-section-content" => ""}
+            -@act.media_posts.where(media_type: 'soundcloud').each do |soundcloud|
+              - audio = Soundcloud.new
+              = raw(audio.fetch(soundcloud[:url], maxwidth: 300, maxheight: 81, show_comments: false, color: '#34495E')['html'])
       %section
         %p.title{"data-section-title" => ""}
           %a{:href => "#panel4"} Requirements
@@ -42,6 +54,10 @@
           %a{:href => "#panel5"} Reviews
         .content{"data-section-content" => ""}
           %p Reviews
+.row
+  %div.large-8.large-offset-2.small-10.small-offset-1.fotorama{"data-ratio" => "800/600", "data-width" => "100%", "data-nav"=>"thumbs"}
+    - @act.media_posts.where(media_type: 'image').each do |image|
+      = raw("<img src=#{image.url}>")
 - if user_signed_in?
   #myModal.reveal-modal
     .row
@@ -68,4 +84,16 @@
             = f.input :proposal, as: :text, :required => true, input_html: { maxlength: 250}
             = f.button :submit, "Submit proposal", class: 'button'
       %a.close-reveal-modal ×
+= content_for :extra_footer do
+  - if @act.media_posts.where(media_type: 'background').any?
+    :javascript
+      $(function(){
+        $('.wrapper').css('background', 'none')
+        $.backstretch("#{@act.media_posts.where(media_type: "background").first.url}");
+      });
+  :javascript
+    $('.youtube').magnificPopup({
+      delegate: 'a',
+      type: 'iframe'
 
+    });

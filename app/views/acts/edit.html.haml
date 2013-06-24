@@ -2,4 +2,6 @@
   %h1
     = "Edit your act #{current_user.act.name}"
   %a
-    = link_to 'Add media', act_media_posts_path(@act), class: 'button'
+    = link_to 'Your media', act_media_posts_path(@act), class: 'button'
+  %a
+    = link_to 'Your act page', act_path(@act), class: 'button'

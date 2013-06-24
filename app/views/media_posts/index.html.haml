@@ -24,17 +24,27 @@
       %span.has-tip{"data-tooltip" => "", :title => "You can only have 10 images. Delete some to add more."}
         %a{"data-reveal-id" => "myPictures", :href => "#", class: 'button disabled'}
           Add pictures
+  .background_link
+    - if @act.media_posts.where(media_type: 'background').count < 1
+      %a{"data-reveal-id" => "myBackground", :href => "#", class: 'button'}
+        Add background
+    - else
+      %span.has-tip{"data-tooltip" => "", :title => "You can only have 1 background. Delete it to change it"}
+        %a{"data-reveal-id" => "myBackground", :href => "#", class: 'button disabled'}
+          Add background
 
 
 
   = form_tag destroy_multiple_act_media_posts_path, method: :delete do
     .video.row
+      %h3 Videos
       - @act.media_posts.where(media_type: 'youtube').each do |youtube|
         - video = Youtube.new
         .large-4.columns
           = raw(video.fetch(youtube[:url], maxwidth: 320)['html'])
           = check_box_tag 'media_post_ids[]', youtube.id
     .audio.row
+      %h3 Audio
       -@act.media_posts.where(media_type: 'soundcloud').each do |soundcloud|
         - audio = Soundcloud.new
         .large-4.columns
@@ -42,13 +52,22 @@
           = check_box_tag 'media_post_ids[]', soundcloud.id
 
     .picture.row
+      %h3 Images
       -@act.media_posts.where(media_type: 'image').each do |image|
         .large-2.columns
           = filepicker_image_tag image[:url], w: 160, h: 160, fit: 'clip'
           = check_box_tag 'media_post_ids', image.id
 
-
-    = submit_tag 'Delete selected', class: 'button alert'
+    .background.row
+      %h3 Background
+      -@act.media_posts.where(media_type: 'background').each do |background|
+        .large-2.columns
+          = filepicker_image_tag background[:url], w: 160, h: 160, fit: 'clip'
+          = check_box_tag 'media_post_ids', background.id
+    - if @act.media_posts.count != 0
+      = submit_tag 'Delete selected', class: 'button alert delete_button'
+    - else
+      = submit_tag 'Delete selected', class: 'button alert delete_button disabled'
 
 
 #myVideo.reveal-modal
@@ -75,4 +94,14 @@
       = f.hidden_field :media_type, value: 'image'
       = f.submit 'Submit picture', class: 'button'
       #getContent
+  %a.close-reveal-modal ×
+
+#myBackground.reveal-modal
+  .h1
+    = form_for [@act, @media] do |f|
+      = f.label :act_url, 'Upload Images:'
+      = f.filepicker_field :url, class: 'button', mimetype: 'image/*', onchange: "$('#getBackground').html('<img src='+event.fpfiles[0].url+' width=160 height=160 />');"
+      = f.hidden_field :media_type, value: 'background'
+      = f.submit 'Submit picture', class: 'button'
+      #getBackground
   %a.close-reveal-modal ×

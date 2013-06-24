@@ -11,6 +11,7 @@
       = link_to 'Contact Us', contact_path, class: 'button small'
 
 = javascript_include_tag "application"
+%script{:src => "http://fotorama.s3.amazonaws.com/4.1.9/fotorama.js"}
 = filepicker_js_include_tag
 
 = yield :extra_footer
