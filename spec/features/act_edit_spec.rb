@@ -4,7 +4,7 @@ feature 'editing my act', %q{
   As an act
   I want to be able to edit my act
   So that I can keep my act up to date
-}, focus: true do
+} do
 
   let(:user) { FactoryGirl.create(:user) }
   let(:act) { FactoryGirl.create(:act) }

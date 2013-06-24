@@ -22,6 +22,7 @@ en:
         kind: 'What kind of venue is it?'
         location: 'State'
         zipcode: 'Zip Code'
+
     # Labels and hints examples
     # labels:
     #   defaults:

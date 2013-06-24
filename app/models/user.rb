@@ -14,5 +14,6 @@ class User < ActiveRecord::Base
   has_one :act
   has_many :proposals
   has_many :venues
+  has_many :contacts
 
 end

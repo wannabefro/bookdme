@@ -12,6 +12,8 @@ BookdMe::Application.routes.draw do
     end
   end
 
+  resources :contacts, only: [:create, :new]
+
   devise_for :users
 
   resources :venues, only: [:create, :new]
@@ -20,7 +22,7 @@ BookdMe::Application.routes.draw do
 
   root :to => "welcome#index"
   match '/about' => "about#index"
-  match '/contact' => "welcome#contact"
+  match '/contact' => "contacts#new"
 
 
   # The priority is based upon order of creation:

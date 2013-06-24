@@ -1,0 +1,32 @@
+.row
+  %h1 Get in Touch!
+  %p
+    We'd love to hear from you. Reach out to us and one of our awesome team members will get back to you. We love getting email all day
+    = succeed "." do
+      %em all day
+  .section-container.auto{"data-section" => ""}
+    %section.section
+      %h5.title
+        %a{:href => "#panel1"} Contact Bookd.me
+      .content{"data-slug" => "panel1"}
+        = simple_form_for @contact do |f|
+          .row.collapse
+            .large-2.columns
+              %label.inline Your Name
+            .large-10.columns
+              = f.input :name, :placeholder => "Jane Smith", label: false, required: true
+          .row.collapse
+            .large-2.columns
+              %label.inline Your Email
+            .large-10.columns
+              = f.input :email, :placeholder => "jane@smithco.com", label: false, required: true
+          .row.collapse
+            .large-2.columns
+              %label.inline Your Subject
+            .large-10.columns
+              = f.input :subject,:placeholder => "I need more clowns", label: false, required: true
+          %label What's up?
+          = f.input :message, as: :text, label: false, required: true
+          - if user_signed_in?
+            = f.input :user_id, as: :hidden, input_html: {value: current_user.id}
+          =f.submit 'Submit', class: 'button radius'
