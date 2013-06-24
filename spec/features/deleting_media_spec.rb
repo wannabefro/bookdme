@@ -10,16 +10,25 @@ feature 'deleting media', %q{
   let!(:act) { FactoryGirl.create(:act, user: user) }
   let!(:media) { FactoryGirl.create(:media_post, act: act) }
 
-  scenario 'there should be a delete button below media' do
+
+  scenario 'should on succesful delete no longer appear on my media page' do
+    prev_count = MediaPost.count
     add_media
-    expect(page).to have_content('Delete selected')
+    find(:css, "#media_post_ids_[value='1']").set(true)
+    click_on 'Delete selected'
+    expect(MediaPost.count).to eql(prev_count - 1)
   end
 
-  scenario "it should ask if you're sure you want to delete", focus: true do
+  scenario 'I should be able to delete multiple files at the same time' do
+    FactoryGirl.create(:media_post, act: act)
+    prev_count = MediaPost.count
+    add_media
+    find(:css, "#media_post_ids_[value='1']").set(true)
+    find(:css, "#media_post_ids_[value='2']").set(true)
+    click_on 'Delete selected'
+    expect(MediaPost.count).to eql(prev_count - 2)
 
   end
-
-  scenario 'should on succesful delete no longer appear on my media page'
 
   def add_media
     sign_in_as user

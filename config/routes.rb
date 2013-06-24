@@ -5,7 +5,11 @@ BookdMe::Application.routes.draw do
 
   resources :acts do
     resources :proposals, only: [:create, :new]
-    resources :media_posts, only: [:create, :index]
+    resources :media_posts, only: [:create, :index] do
+      collection do
+        delete 'destroy_multiple'
+      end
+    end
   end
 
   devise_for :users

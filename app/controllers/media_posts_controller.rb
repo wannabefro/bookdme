@@ -16,6 +16,11 @@ class MediaPostsController < ApplicationController
     end
   end
 
+  def destroy_multiple
+    @act = Act.find(params[:act_id])
+    MediaPost.destroy(params[:media_post_ids])
+    redirect_to act_media_posts_path(@act), notice: 'Successfully deleted media'
+  end
 
   private
 

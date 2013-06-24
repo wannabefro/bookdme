@@ -1,9 +1,5 @@
 .row
   %h1 Add media
-  .video.row
-    - @act.media_posts.where(media_type: 'youtube').each do |youtube|
-      - video = Youtube.new
-      .large-4.columns= raw(video.fetch(youtube[:url], maxwidth: 320)['html'])
   .video_link
     - if @act.media_posts.where(media_type: 'youtube').count < 3
       %a{"data-reveal-id" => "myVideo", :href => "#", class: 'button'}
@@ -12,22 +8,47 @@
       %span.has-tip{"data-tooltip" => "", :title => "You can only have 3 Youtube videos. Delete some to add more."}
         %a{"data-reveal-id" => "myVideo", :href => "#", class: 'button disabled'}
           Add video
-
-  .audio.row
-    -@act.media_posts.where(media_type: 'soundcloud').each do |soundcloud|
-      - audio = Soundcloud.new
-      .large-4.columns= raw(audio.fetch(soundcloud[:url], maxwidth: 320, maxheight: 81, show_comments: false, color: '#34495E')['html'])
   .audio_link
-    %a{"data-reveal-id" => "myAudio", :href => '#', class: 'button'}
-      Add audio
-
-  .picture.row
-    -@act.media_posts.where(media_type: 'image').each do |image|
-      .large-2.columns= filepicker_image_tag image[:url], w: 160, h: 160, fit: 'clip'
+    - if @act.media_posts.where(media_type: 'soundcloud').count < 3
+      %a{"data-reveal-id" => "myAudio", :href => "#", class: 'button'}
+        Add audio
+    - else
+      %span.has-tip{"data-tooltip" => "", :title => "You can only have 3 Soundcloud tracks. Delete some to add more."}
+        %a{"data-reveal-id" => "myAudio", :href => "#", class: 'button disabled'}
+          Add audio
   .picture_link
-    %a{"data-reveal-id" => 'myPictures', :href => '#', class: 'button'}
-      Add pictures
-  = link_to 'Delete selected', '#', class: 'button alert small'
+    - if @act.media_posts.where(media_type: 'image').count < 10
+      %a{"data-reveal-id" => "myPictures", :href => "#", class: 'button'}
+        Add pictures
+    - else
+      %span.has-tip{"data-tooltip" => "", :title => "You can only have 10 images. Delete some to add more."}
+        %a{"data-reveal-id" => "myPictures", :href => "#", class: 'button disabled'}
+          Add pictures
+
+
+
+  = form_tag destroy_multiple_act_media_posts_path, method: :delete do
+    .video.row
+      - @act.media_posts.where(media_type: 'youtube').each do |youtube|
+        - video = Youtube.new
+        .large-4.columns
+          = raw(video.fetch(youtube[:url], maxwidth: 320)['html'])
+          = check_box_tag 'media_post_ids[]', youtube.id
+    .audio.row
+      -@act.media_posts.where(media_type: 'soundcloud').each do |soundcloud|
+        - audio = Soundcloud.new
+        .large-4.columns
+          = raw(audio.fetch(soundcloud[:url], maxwidth: 320, maxheight: 81, show_comments: false, color: '#34495E')['html'])
+          = check_box_tag 'media_post_ids[]', soundcloud.id
+
+    .picture.row
+      -@act.media_posts.where(media_type: 'image').each do |image|
+        .large-2.columns
+          = filepicker_image_tag image[:url], w: 160, h: 160, fit: 'clip'
+          = check_box_tag 'media_post_ids', image.id
+
+
+    = submit_tag 'Delete selected', class: 'button alert'
 
 
 #myVideo.reveal-modal
