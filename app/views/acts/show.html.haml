@@ -21,7 +21,8 @@
         %p.title{"data-section-title" => ""}
           %a{:href => "#bio"} Biography
         .content{"data-section-content" => ""}
-          = @act.biographies.first.biography
+          - if @act.biographies.any?
+            = @act.biographies.first.biography
       %section
         %p.title{"data-section-title" => ""}
           %a{:href => "#aboutus"} About Us
@@ -48,7 +49,8 @@
         %p.title{"data-section-title" => ""}
           %a{:href => "#panel4"} Requirements
         .content{"data-section-content" => ""}
-          = @act.biographies.first.rider
+          - if @act.biographies.any?
+            = @act.biographies.first.rider
       %section
         %p.title{"data-section-title" => ""}
           %a{:href => "#panel5"} Reviews

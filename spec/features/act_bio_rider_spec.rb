@@ -19,11 +19,11 @@ feature 'adding a bio', %q{
     prev_count = Biography.count
     go_to_bio_page
     fill_in 'biography_biography', with: bio[:biography]
-    click_on 'Create Biography'
+    click_on 'Update Biography'
     expect(Biography.count).to eql(prev_count + 1)
   end
 
-  scenario 'there is a rider text area', focus: true do
+  scenario 'there is a rider text area' do
     go_to_bio_page
     expect(page).to have_content('Your rider')
   end

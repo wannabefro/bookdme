@@ -73,4 +73,14 @@ feature 'searching for acts', %q{
     expect(page).to_not have_content(act3.name)
   end
 
+  scenario 'I should be able to search with a misspelling' do
+    visit acts_path
+    fill_in 'query', with: 'Bellinda the grat'
+    click_on 'Search'
+
+    expect(page).to have_content(act1.name)
+    expect(page).to_not have_content(act2.name)
+    expect(page).to_not have_content(act3.name)
+  end
+
 end

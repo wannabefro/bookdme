@@ -18,7 +18,6 @@ describe Act do
   it { should have_many(:biographies) }
   it { should have_many(:proposals) }
   it { should have_many(:media_posts) }
-  it { should have_many(:riders) }
 
   let!(:user) { FactoryGirl.create(:user) }
   let(:act) { FactoryGirl.build(:act) }

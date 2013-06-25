@@ -25,11 +25,11 @@ class Act < ActiveRecord::Base
   has_many :proposals
   has_many :media_posts
   has_many :biographies
-  has_many :riders
 
   pg_search_scope :search, against: [:name, :custom_genre],
-  associated_against: {location: :state, category: :name}
-  # , comments: [:name, :content]},
+  associated_against: {location: :state, category: :name},
+  using: [:trigram, :tsearch]
+
 
   def owner? current_user
     user == current_user

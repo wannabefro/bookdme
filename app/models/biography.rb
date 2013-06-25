@@ -11,7 +11,7 @@ class Biography < ActiveRecord::Base
   private
 
   def one_biography
-    if self.act.biographies.where(:biography => true).count >= 1
+    if self.act.biographies.count >= 1
       errors[:max_biography] << 'You can only have 1 biography'
     end
   end
