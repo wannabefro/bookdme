@@ -2,10 +2,11 @@ class Biography < ActiveRecord::Base
 
   attr_accessible :act, :biography, :rider
 
-  validates_presence_of :act, :biography, :rider
+  validates_presence_of :act
   validate :one_biography, on: :create
 
   belongs_to :act
+
 
   private
 

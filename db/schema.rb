@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(:version => 20130625122719) do
   add_index "acts", ["user_id"], :name => "index_acts_on_user_id", :unique => true
 
   create_table "biographies", :force => true do |t|
-    t.integer  "act_id",                                             :null => false
-    t.text     "biography",  :default => "Your biography goes here", :null => false
-    t.text     "rider",      :default => "Your rider goes here",     :null => false
-    t.datetime "created_at",                                         :null => false
-    t.datetime "updated_at",                                         :null => false
+    t.integer  "act_id",     :null => false
+    t.text     "biography"
+    t.text     "rider"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "categories", :force => true do |t|
