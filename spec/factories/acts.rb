@@ -7,12 +7,10 @@ FactoryGirl.define do
     location
     category
     custom_genre "ballerina"
-    biography "I come from the motherland to bring joy to all the leprachauns in the world"
     website 'www.bellindarocks.com'
     short_bio 'Best dance troupe ever'
 
     price
-    rider "MyText"
     travel_range 1
   end
 
@@ -22,12 +20,10 @@ FactoryGirl.define do
     location
     category
     custom_genre "machoman"
-    biography "I come from the motherland to bring joy to all the leprachauns in the world"
     website 'www.bellindarocks.com'
     short_bio 'Best dance troupe ever'
 
     price
-    rider "MyText"
     travel_range 1
   end
 
@@ -37,12 +33,10 @@ FactoryGirl.define do
     location
     category
     custom_genre "ballerina"
-    biography "I come from the motherland to bring joy to all the leprachauns in the world"
     website 'www.bellindarocks.com'
     short_bio 'Best dance troupe ever'
 
     price
-    rider "MyText"
     travel_range 1
   end
 

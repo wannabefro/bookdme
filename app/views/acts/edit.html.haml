@@ -3,5 +3,9 @@
     = "Edit your act #{current_user.act.name}"
   %a
     = link_to 'Your media', act_media_posts_path(@act), class: 'button'
+
+  %a
+    = link_to 'Your bio and rider', act_biographies_path(@act), class: 'button'
+
   %a
     = link_to 'Your act page', act_path(@act), class: 'button'

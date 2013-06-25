@@ -11,16 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624195342) do
+ActiveRecord::Schema.define(:version => 20130625122719) do
 
   create_table "acts", :force => true do |t|
     t.integer  "user_id",      :null => false
     t.string   "name"
     t.integer  "location_id",  :null => false
     t.string   "custom_genre"
-    t.text     "biography"
     t.string   "avatar"
-    t.text     "rider"
     t.integer  "travel_range"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
@@ -31,6 +29,14 @@ ActiveRecord::Schema.define(:version => 20130624195342) do
   end
 
   add_index "acts", ["user_id"], :name => "index_acts_on_user_id", :unique => true
+
+  create_table "biographies", :force => true do |t|
+    t.integer  "act_id",                                             :null => false
+    t.text     "biography",  :default => "Your biography goes here", :null => false
+    t.text     "rider",      :default => "Your rider goes here",     :null => false
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"

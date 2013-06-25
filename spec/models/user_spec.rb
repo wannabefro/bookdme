@@ -6,6 +6,11 @@ describe User do
   it {should validate_presence_of(:last_name)}
   it {should validate_presence_of(:email)}
 
+  it {should have_one(:act)}
+  it {should have_many(:proposals)}
+  it {should have_many(:venues)}
+  it {should have_many(:contacts)}
+
   let(:user) { FactoryGirl.build(:user) }
   let!(:previous_count) { User.count }
 

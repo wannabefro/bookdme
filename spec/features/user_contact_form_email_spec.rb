@@ -4,7 +4,7 @@ feature 'user contact form email', %q{
   As a user
   I should receive an email when I submit a contact form
   So that I know I successfully submitted one
-}, focus: true do
+} do
 
   let!(:contact) { FactoryGirl.create(:contact) }
   let(:prev_count) { ActionMailer::Base.deliveries.count }

@@ -1,0 +1,17 @@
+.row
+  %h1 Your Biography and Rider
+
+  = simple_form_for [@act, @bio] do |f|
+    = f.error_notification
+    %h3 Your biography
+
+    =f.input :biography, as: :text, label: false
+    =f.submit 'Update Biography',class: 'button'
+
+  = simple_form_for [@act, @bio] do |f|
+    = f.error_notification
+    %h3 Your rider
+
+    =f.input :rider, as: :text,label: false
+    =f.submit 'Update Rider', class: 'button'
+

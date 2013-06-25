@@ -6,6 +6,7 @@ describe Act do
   it { should belong_to(:user) }
   it { should belong_to(:category) }
   it { should belong_to(:location) }
+  it { should belong_to(:price) }
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:user) }
   it { should validate_presence_of(:category) }
@@ -13,6 +14,11 @@ describe Act do
   it { should validate_presence_of(:short_bio) }
   it { should validate_presence_of(:price) }
   it { should validate_presence_of(:custom_genre) }
+
+  it { should have_many(:biographies) }
+  it { should have_many(:proposals) }
+  it { should have_many(:media_posts) }
+  it { should have_many(:riders) }
 
   let!(:user) { FactoryGirl.create(:user) }
   let(:act) { FactoryGirl.build(:act) }

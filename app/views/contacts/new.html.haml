@@ -10,6 +10,7 @@
         %a{:href => "#panel1"} Contact Bookd.me
       .content{"data-slug" => "panel1"}
         = simple_form_for @contact do |f|
+          = f.error_notification
           .row.collapse
             .large-2.columns
               %label.inline Your Name

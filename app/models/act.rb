@@ -5,7 +5,7 @@ class Act < ActiveRecord::Base
   include PgSearch
 
 
-  attr_accessible :avatar, :biography, :custom_genre, :category_id, :location_id, :name, :price, :rider,
+  attr_accessible :avatar, :custom_genre, :category_id, :location_id, :name, :price,
                   :travel_range, :user_id, :website, :short_bio, :price_id
 
   validates :name, presence: true, obscenity: { message: 'No obscenity allowed in the act name' }
@@ -24,6 +24,8 @@ class Act < ActiveRecord::Base
 
   has_many :proposals
   has_many :media_posts
+  has_many :biographies
+  has_many :riders
 
   pg_search_scope :search, against: [:name, :custom_genre],
   associated_against: {location: :state, category: :name}
