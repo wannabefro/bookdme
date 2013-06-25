@@ -55,7 +55,14 @@
         %p.title{"data-section-title" => ""}
           %a{:href => "#panel5"} Reviews
         .content{"data-section-content" => ""}
-          %p Reviews
+          - if !@act.reviews.any?
+            %p This act has no reviews
+          - else
+            - @act.reviews.each do |review|
+              %h5
+                = review.headline
+              %p
+                = review.review
 .row
   %div.large-8.large-offset-2.small-10.small-offset-1.fotorama{"data-ratio" => "800/600", "data-width" => "100%", "data-nav"=>"thumbs"}
     - @act.media_posts.where(media_type: 'image').each do |image|

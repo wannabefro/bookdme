@@ -1,0 +1,30 @@
+.row
+  %h1 Your Reviews
+  .section-container.auto{"data-section" => ""}
+    %section.section
+      %h5.title
+        %a{:href => "#panel1"} Add review
+      .content{"data-slug" => "panel1"}
+        = simple_form_for [@act, @review] do |f|
+          = f.error_notification
+          .row.collapse
+            .large-2.columns
+              %label.inline Review Headline
+            .large-10.columns
+              = f.input :headline, :placeholder => "Best clown ever", label: false, required: true
+          .row.collapse
+            .large-2.columns
+              %label.inline Review Source
+            .large-10.columns
+              = f.input :source, :placeholder => "My mum", label: false, required: true
+          %label Review body
+          = f.input :review, as: :text, :placeholder => "My girlfriend also told me", label: false, required: true
+          = f.button :submit, class: 'button'
+  - @act.reviews.each do |review|
+    %h3
+      = review.headline
+    %p
+      = review.review
+    = link_to 'Delete', [@act, review], method: :delete, class: 'button alert'
+
+

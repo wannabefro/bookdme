@@ -6,7 +6,7 @@ BookdMe::Application.routes.draw do
   resources :acts do
     resources :proposals, only: [:create, :new]
     resources :biographies, only: [:create, :index, :update]
-    resources :reviews, only: [:create, :index]
+    resources :reviews, only: [:create, :index, :destroy]
     resources :media_posts, only: [:create, :index] do
       collection do
         delete 'destroy_multiple'
