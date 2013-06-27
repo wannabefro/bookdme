@@ -4,24 +4,26 @@
       %h1 Find your perfect act now!
       %p Whether it's a band, a clown, a mime, a ballerina, fire-breather, find it here.
       = form_tag acts_path, method: :get do
-        = text_field_tag :query, params[:query], placeholder: 'type your act here', class: 'expand'
+        = text_field_tag :query, params[:query], placeholder: 'type your act here', class: 'expand', id: 'search'
         = submit_tag 'Search', class: 'button radius'
 
 
 .info_container
   .row.info
     .large-4.columns
-      %img.img-circle{"src" => "http://placehold.it/140x140"}/
+      %div.homeimage
+        <img src="assets/search.png" />
       %h2 Find your act
       %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
 
     .large-4.columns
-      %img.img-circle{"src" => "http://placehold.it/140x140"}/
+      %div.homeimage
+        <img src="assets/paper-plane.png" />
       %h2 Make your offer
       %p Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
 
     .large-4.columns
-      %img.img-circle{"src" => "http://placehold.it/140x140"}/
+      %div.homeimage
+        <img src="assets/crest.png" />
       %h2 Get your act
       %p Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-
