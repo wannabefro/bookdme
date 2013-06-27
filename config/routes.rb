@@ -4,7 +4,7 @@ BookdMe::Application.routes.draw do
   get "about/index"
 
   resources :acts do
-    resources :proposals, only: [:create, :new]
+    resources :proposals, only: [:create, :new, :index, :destroy]
     resources :biographies, only: [:create, :index, :update]
     resources :reviews, only: [:create, :index, :destroy]
     resources :media_posts, only: [:create, :index] do

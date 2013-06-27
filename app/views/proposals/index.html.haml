@@ -1,0 +1,26 @@
+.row
+  %h1 Your proposals
+  - if @proposals.count == 0
+    %p You currently have no proposals
+  -else
+    -@proposals.each do |proposal|
+      %p
+        From:
+        =proposal.user.first_name
+      %p
+        When:
+        = proposal.time.strftime('%l:%M %p')
+        ,
+        = proposal.date.strftime('%A, %b %d')
+      %p
+        How much: $
+        = proposal.price
+      %p
+        Proposal:
+        = proposal.proposal
+      %p
+        Respond to:
+        = proposal.user.email
+      %a
+        = link_to 'Delete', [@act, proposal], method: :delete, class: 'button alert'
+  = link_to 'Back to act', act_path(@act), class: 'button'

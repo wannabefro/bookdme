@@ -14,6 +14,8 @@
     - else
       %a
         = link_to 'edit your act', edit_act_path(@act), class: 'button'
+      %a
+        = link_to "your proposals", act_proposals_path(@act), class: 'button'
 .row.more_info
   .large-12.columns
     .section-container.auto{"data-section" => ""}
@@ -72,6 +74,7 @@
   %div.large-8.large-offset-2.small-10.small-offset-1.fotorama{"data-ratio" => "800/600", "data-width" => "100%", "data-nav"=>"thumbs"}
     - @act.media_posts.where(media_type: 'image').each do |image|
       = raw("<img src=#{image.url}>")
+
 - if user_signed_in?
   #myModal.reveal-modal
     .row

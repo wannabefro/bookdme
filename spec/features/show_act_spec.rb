@@ -2,20 +2,20 @@ require 'spec_helper'
 
 describe 'the act show page' do
   before(:each) do
-    act = FactoryGirl.create(:act)
+    user = FactoryGirl.create(:user)
+    act = FactoryGirl.create(:act, user: user)
+    sign_in_as user
     visit act_path(act.id)
   end
 
-  it 'should show about us information if you click on about us' do
-    # click_on 'About Us'
-    # page.should have_content('ballerina')
-    # page.should_not have_content('I come from the motherland')
+  it 'should have an edit your act button' do
+    expect(page).to have_content('edit your act')
   end
 
-  it 'should show the full biography if you click on biography'
+  it 'should have a proposals button' do
+    expect(page).to have_content('your proposals')
+  end
 
-  it 'should show links to youtube, soundcloud etc.. if you click on links'
 
-  it 'should show reviews if you click on reviews'
 
 end

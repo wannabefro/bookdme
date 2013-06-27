@@ -12,3 +12,29 @@
 
   %a
     = link_to 'Your act page', act_path(@act), class: 'button'
+.row
+  = simple_form_for @act do |f|
+    = f.error_notification
+    .large-10.small-10
+      .form-inputs
+        = f.input :name, :required => true, :autofocus => true
+        = f.label :avatar, 'Upload profile picture:'
+        #getContent
+        = f.filepicker_field :avatar, class: 'small button pad_button', mimetype: 'image/*', onchange: "$('#getContent').html('<img src='+event.fpfiles[0].url+' width=160 height=160 />');"
+        = f.input :website
+        = f.association :category,
+          collection: Category.all,
+          include_blank: true,
+          input_html: { class: 'select-nice', style: 'width: 100%;' }
+        = f.association :price,
+          label_method: :range,
+          include_blank:true,
+          input_html: { class: 'select-nice', style: 'width: 100%;' }
+        = f.association :location,
+          label_method: :state,
+          include_blank: true,
+          input_html: { class: 'select-nice', style: 'width: 100%;' }
+        = f.input :zipcode, :required => true
+        = f.input :custom_genre
+        = f.input :short_bio, as: :text, :required => true, input_html: { maxlength: 140, size: '10x17', style: 'height: 10em;' }
+        = f.button :submit, "Update your act", class: 'button'
