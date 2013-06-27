@@ -27,7 +27,12 @@
         %p.title{"data-section-title" => ""}
           %a{:href => "#aboutus"} About Us
         .content{"data-section-content" => ""}
-          %p About Us
+          %p
+            = "What we do:  #{@act.custom_genre}"
+          %p
+            = "Location:  #{@act.location.state}, #{@act.zipcode}"
+          %p
+            = "Hourly rate:  $#{@act.price.range}"
       - if @act.media_posts.where(media_type: 'youtube').count != 0 || @act.owner?(current_user)
         %section
           %p.title{"data-section-title" => ""}
