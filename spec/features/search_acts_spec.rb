@@ -9,6 +9,7 @@ feature 'searching for acts', %q{
   let(:act1) { FactoryGirl.create(:act) }
   let(:act2) { FactoryGirl.create(:act2, location: cali, category: music) }
   let(:act3) { FactoryGirl.create(:act3, location: home, category: magic) }
+  let(:act4) { FactoryGirl.create(:act, name: 'Testacular the great')}
   let!(:category) { FactoryGirl.create(:category) }
   let!(:location) { FactoryGirl.create(:location) }
   let!(:cali) { FactoryGirl.create(:cali) }
@@ -20,6 +21,7 @@ feature 'searching for acts', %q{
     act1
     act2
     act3
+    act4
   end
 
   scenario 'I should be able to search for an act by name from the home page' do
@@ -81,6 +83,14 @@ feature 'searching for acts', %q{
     expect(page).to have_content(act1.name)
     expect(page).to_not have_content(act2.name)
     expect(page).to_not have_content(act3.name)
+  end
+
+  scenario 'I should be able to search for Testaular' do
+    visit acts_path
+    fill_in 'query', with: 'Testaculars'
+    click_on 'Search'
+
+    expect(page).to have_content(act4.name)
   end
 
 end

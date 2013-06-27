@@ -31,7 +31,7 @@ class Act < ActiveRecord::Base
 
   pg_search_scope :search, against: [:name, :custom_genre],
   associated_against: {location: :state, category: :name},
-  using: [:trigram, :tsearch]
+  using: [:tsearch, :trigram]
 
 
   def owner? current_user

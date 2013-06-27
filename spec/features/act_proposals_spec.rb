@@ -4,7 +4,7 @@ feature 'viewing proposals', %q{
   As an act
   I want to be able to see all of my proposals
   So that I can see who wants to book me
-}, focus: true do
+} do
 
     before(:each) do
       @user = FactoryGirl.create(:user)
