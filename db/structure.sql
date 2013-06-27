@@ -73,7 +73,8 @@ CREATE TABLE acts (
     website character varying(255),
     category_id integer NOT NULL,
     short_bio character varying(255),
-    price_id integer
+    price_id integer,
+    zipcode character varying(255) NOT NULL
 );
 
 
@@ -804,3 +805,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130625122719');
 INSERT INTO schema_migrations (version) VALUES ('20130625162528');
 
 INSERT INTO schema_migrations (version) VALUES ('20130625181834');
+
+INSERT INTO schema_migrations (version) VALUES ('20130627114745');

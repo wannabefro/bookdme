@@ -18,6 +18,7 @@
           collection: Category.all,
           include_blank: true,
           input_html: { class: 'select-nice', style: 'width: 100%;' }
+        = f.input :zipcode, :required => true
         = f.association :price,
           label_method: :range,
           include_blank:true,

@@ -6,7 +6,7 @@ class Act < ActiveRecord::Base
 
 
   attr_accessible :avatar, :custom_genre, :category_id, :location_id, :name, :price,
-                  :travel_range, :user_id, :website, :short_bio, :price_id
+                  :travel_range, :user_id, :website, :short_bio, :price_id, :zipcode
 
   validates :name, presence: true, obscenity: { message: 'No obscenity allowed in the act name' }
   validates :category, presence: true
@@ -15,6 +15,8 @@ class Act < ActiveRecord::Base
   validates :short_bio, presence: true, length: {maximum: 140}
   validates :price, presence: true
   validates :custom_genre, presence: true, length: {maximum: 50}
+  validates :zipcode, presence: true
+  validates_format_of :zipcode, :with => /^\d{5}(-\d{4})?$/, :message => "should be in the form 12345 or 12345-1234"
 
 
   belongs_to :user

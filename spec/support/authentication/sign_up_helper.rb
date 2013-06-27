@@ -17,6 +17,7 @@ module SignUpHelper
     image_path = Rails.root + 'spec/support/images/placeholder.gif'
     fill_in 'Name', with: act[:name]
     select('Dancer', :from => 'What kind of act are you')
+    fill_in 'Zipcode', with: act[:zipcode]
     select('Florida', :from => 'Where are you based')
 
     fill_in 'What does your act specialize in', with: act[:custom_genre]

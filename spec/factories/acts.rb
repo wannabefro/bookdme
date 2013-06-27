@@ -5,6 +5,7 @@ FactoryGirl.define do
     user
     name "Bellinda the great"
     location
+    zipcode '02445'
     category
     custom_genre "ballerina"
     website 'www.bellindarocks.com'
@@ -18,6 +19,7 @@ FactoryGirl.define do
     user
     name "Donald Duck"
     location
+    zipcode '02445'
     category
     custom_genre "machoman"
     website 'www.bellindarocks.com'
@@ -31,6 +33,7 @@ FactoryGirl.define do
     user
     name "Mickey Mouse"
     location
+    zipcode '02445'
     category
     custom_genre "ballerina"
     website 'www.bellindarocks.com'

@@ -14,11 +14,16 @@ describe Act do
   it { should validate_presence_of(:short_bio) }
   it { should validate_presence_of(:price) }
   it { should validate_presence_of(:custom_genre) }
+  it { should validate_presence_of(:zipcode) }
 
   it { should have_many(:biographies) }
   it { should have_many(:proposals) }
   it { should have_many(:media_posts) }
   it { should have_many(:reviews) }
+
+  it { should_not allow_value('123456').for(:zipcode) }
+  it { should allow_value('02445').for(:zipcode) }
+  it { should allow_value('12345-1234').for(:zipcode)}
 
   let!(:user) { FactoryGirl.create(:user) }
   let(:act) { FactoryGirl.build(:act) }
