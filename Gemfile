@@ -33,6 +33,7 @@ gem 'oembed'
 gem 'magnific-popup-rails'
 gem 'pg_search'
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -56,6 +57,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'stuffer'
   gem 'email_spec'
+  gem 'launchy'
   gem 'progress_bar'
   gem 'database_cleaner'
   gem 'zeus'

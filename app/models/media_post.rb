@@ -1,5 +1,3 @@
-require 'addressable/uri'
-
 class MediaPost < ActiveRecord::Base
 
   before_validation :valid_youtube, :valid_soundcloud, :validate_max_youtube, :validate_max_soundcloud,
