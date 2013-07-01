@@ -49,7 +49,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'launchy'
   gem 'valid_attribute'
   gem 'pry'
   gem 'shoulda'
