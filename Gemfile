@@ -31,6 +31,7 @@ gem 'friendly_id'
 gem 'filepicker-rails'
 gem 'oembed'
 gem 'magnific-popup-rails'
+gem 'pg_search'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -57,7 +58,6 @@ group :development, :test do
   gem 'stuffer'
   gem 'email_spec'
   gem 'progress_bar'
-  gem 'pg_search'
   gem 'database_cleaner'
   gem 'zeus'
   gem 'pry-plus'
