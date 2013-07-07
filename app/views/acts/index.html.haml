@@ -1,4 +1,4 @@
-.row
+.row.showpage
   .search_act.large-12.columns
     %h1 Find your act
     = form_tag acts_path, method: :get do
@@ -6,7 +6,7 @@
       = submit_tag 'Search', class: 'button small radius large-2'
     / %input{:placeholder => "Find it here", :type => "text"}/
   -@acts.each do |act|
-    .row.large-offset-2
+    .row
       .media.attribtution.show_margin
         .img= filepicker_image_tag act.avatar, w: 160, h: 160, fit: 'clip'
         .show_content
@@ -15,11 +15,11 @@
           %p= act.short_bio
       = link_to 'View act', act, class: 'button button_left'
 = content_for :extra_footer do
-  // :javascript
-  //   $(function(){
-  //     $('.wrapper').css('background', 'none')
-  //     $.backstretch("assets/background1.jpg");
-  //   });
+  :javascript
+    $(function(){
+      $('.wrapper').css('background', 'none')
+      $.backstretch("assets/background1.jpg");
+    });
 
 
 

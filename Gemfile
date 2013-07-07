@@ -32,6 +32,7 @@ gem 'filepicker-rails'
 gem 'oembed'
 gem 'magnific-popup-rails'
 gem 'pg_search'
+gem 'kaminari'
 
 
 # Gems used only for assets and not required

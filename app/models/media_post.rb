@@ -9,7 +9,7 @@ class MediaPost < ActiveRecord::Base
 
   validates_presence_of :act, :media_type, :url
   validates :media_type, inclusion: {in: MEDIA}
-  belongs_to :act
+  belongs_to :act, dependent: :destroy
 
 
   private

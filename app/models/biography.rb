@@ -5,7 +5,7 @@ class Biography < ActiveRecord::Base
   validates_presence_of :act
   validate :one_biography, on: :create
 
-  belongs_to :act
+  belongs_to :act, dependent: :destroy
 
 
   private
