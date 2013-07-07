@@ -74,7 +74,8 @@ CREATE TABLE acts (
     category_id integer NOT NULL,
     short_bio character varying(255),
     price_id integer,
-    zipcode character varying(255) NOT NULL
+    zipcode character varying(255) NOT NULL,
+    slug character varying(255)
 );
 
 
@@ -673,6 +674,13 @@ ALTER TABLE ONLY venues
 
 
 --
+-- Name: index_acts_on_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_acts_on_slug ON acts USING btree (slug);
+
+
+--
 -- Name: index_acts_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -807,3 +815,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130625162528');
 INSERT INTO schema_migrations (version) VALUES ('20130625181834');
 
 INSERT INTO schema_migrations (version) VALUES ('20130627114745');
+
+INSERT INTO schema_migrations (version) VALUES ('20130707181344');
