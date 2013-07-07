@@ -1,7 +1,7 @@
 class ActsController < ApplicationController
 
   def index
-    @acts = Act.text_search(params[:query]).page(params[:page]).per_page(2)
+    @acts = Act.text_search(params[:query]).page(params[:page]).per(10)
   end
 
   def new

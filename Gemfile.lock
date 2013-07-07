@@ -337,6 +337,7 @@ DEPENDENCIES
   guard-rspec
   haml-rails
   jquery-rails
+  kaminari
   launchy
   magnific-popup-rails
   obscenity

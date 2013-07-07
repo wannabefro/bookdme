@@ -14,6 +14,7 @@
           %strong= act.category.name
           %p= act.short_bio
       = link_to 'View act', act, class: 'button button_left'
+  .pagination= paginate @acts
 = content_for :extra_footer do
   :javascript
     $(function(){
