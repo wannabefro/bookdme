@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: "bookdme@example.com"
+  default from: "contact@bookd.me"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
