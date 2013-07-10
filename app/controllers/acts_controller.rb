@@ -39,10 +39,19 @@ class ActsController < ApplicationController
       if @user.act
         @act = Act.find_by_id(@user.act)
       else
-        redirect_to acts_path, alert: 'You must have an act to edit it - idiot'
+        redirect_to acts_path, alert: 'You must have an act to edit it'
       end
     else
       redirect_to acts_path, alert: 'You must log in to edit your act'
+    end
+  end
+
+  def update
+    @act = Act.find(params[:id])
+    if @act.update_attributes(params[:act])
+      redirect_to edit_act_path(@act), notice: 'Successfully update act'
+    else
+      redirect_to edit_act_path(@act)
     end
   end
 
