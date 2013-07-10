@@ -5,7 +5,7 @@ class Review < ActiveRecord::Base
   attr_accessible :headline, :review, :source, :act
 
   validates_presence_of :headline, :review, :act
-  belongs_to :act, dependent: :destroy
+  belongs_to :act
 
   private
 

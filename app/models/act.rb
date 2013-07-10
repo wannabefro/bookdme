@@ -25,9 +25,9 @@ class Act < ActiveRecord::Base
   belongs_to :price
 
   has_many :proposals
-  has_many :media_posts
-  has_many :biographies
-  has_many :reviews
+  has_many :media_posts, dependent: :destroy
+  has_many :biographies, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   pg_search_scope :search, against: [:name, :custom_genre],
   associated_against: {location: :state, category: :name},

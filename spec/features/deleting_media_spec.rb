@@ -4,7 +4,7 @@ feature 'deleting media', %q{
   As an act
   I want to be able to delete media
   So that I can replace it with better media
-} do
+}, focus: true do
 
   let!(:user) { FactoryGirl.create(:user) }
   let!(:act) { FactoryGirl.create(:act, user: user) }
@@ -25,6 +25,7 @@ feature 'deleting media', %q{
     FactoryGirl.create(:media_post, act: act)
     prev_count = MediaPost.count
     add_media
+
     find(:css, "#media_post_ids_[value='1']").set(true)
     find(:css, "#media_post_ids_[value='2']").set(true)
     click_on 'Delete selected'
