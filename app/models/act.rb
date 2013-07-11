@@ -16,7 +16,7 @@ class Act < ActiveRecord::Base
   validates :price, presence: true
   validates :custom_genre, presence: true, length: {maximum: 50}
   validates :zipcode, presence: true
-  validates_format_of :zipcode, :with => /^\d{5}(-\d{4})?$/, :message => "should be in the form 12345 or 12345-1234"
+  validates_format_of :zipcode, :with => /\A\d{5}(-\d{4})?\z/, :message => "should be in the form 12345 or 12345-1234"
 
 
   belongs_to :user
